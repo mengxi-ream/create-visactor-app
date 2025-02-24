@@ -1,0 +1,42 @@
+{
+  "name": "create-vchart-app",
+  "version": "0.0.0",
+  "description": "Create web application with VChart",
+  "license": "MIT",
+  "keywords": [
+    "create-vchart-app",
+    "vchart",
+    "typescript"
+  ],
+  "type": "module",
+  "bin": {
+    "vchart": "./dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "link-cli": "pnpm link --global",
+    "relink-cli": "pnpm uninstall --global create-vchart-app && pnpm link --global"
+  },
+  "author": "MengXi",
+  "devDependencies": {
+    "@types/node": "^22.13.5",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "commander": "^13.1.0",
+    "inquirer": "^12.4.2"
+  }
+}
