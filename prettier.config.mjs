@@ -2,6 +2,7 @@
  * @type {import('prettier').Config & import("@ianvs/prettier-plugin-sort-imports").PluginConfig}
  */
 const config = {
+  plugins: ["prettier-plugin-packagejson"],
   arrowParens: "always",
   printWidth: 80,
   singleQuote: false,

@@ -8,6 +8,7 @@ const config = {
   ...baseConfig,
   arrowParens: "always",
   plugins: [
+    ...(baseConfig.plugins || []),
     "@ianvs/prettier-plugin-sort-imports",
     "prettier-plugin-tailwindcss",
   ],
