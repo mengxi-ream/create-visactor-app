@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "include": [".eslintrc.cjs", "prettier.config.mjs"],
+  "include": [".eslintrc.cjs", "prettier.config.mjs", "commitlint.config.cjs"],
   "compilerOptions": {
     /* LANGUAGE COMPILATION OPTIONS */
     "lib": ["es2023"],

@@ -16,6 +16,8 @@
     "prepare": "husky"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
     "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/eslint": "^8",
