@@ -124,7 +124,7 @@ export const runCli = async (): Promise<CliResults> => {
             ],
           }),
       }),
-      _: ({ results }) => {
+      _library: ({ results }) => {
         if (results.library === "vtable") {
           p.note("VTable is not available yet");
           throw new Error("VTable is not available yet");
@@ -168,6 +168,16 @@ export const runCli = async (): Promise<CliResults> => {
             },
           ],
         });
+      },
+      _template: ({ results }) => {
+        if (
+          results.template === "svelte" ||
+          results.template === "nextjs-minimal"
+        ) {
+          p.note("This template is not available yet");
+          throw new Error("This template is not available yet");
+        }
+        return undefined;
       },
       // tailwind: () => {
       //   return p.confirm({
