@@ -3,3 +3,4 @@ public/
 .gitignore
 .next/
 .source/
+.husky/
