@@ -54,7 +54,7 @@ export const runCli = async (): Promise<CliResults> => {
     .version(getVersion(), "-v, --version", "display the version number")
     .argument(
       "[library]",
-      "The type of VisActor library to integrate: vchart, vtable",
+      "The type of VisActor libraries to integrate: vchart, vtable",
       (value) => {
         if (!value) return value;
         if (validateLibrary(value)) {
