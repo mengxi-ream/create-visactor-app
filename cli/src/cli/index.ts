@@ -1,19 +1,20 @@
-import { Command, InvalidArgumentError } from "commander";
-import { DEFAULT_APP_NAME } from "~/consts.js";
-import { getVersion } from "~/utils/getVersion.js";
-import {
-  AvailableLibraries,
-  AvailablePackages,
-  AvailableTemplates,
-} from "~/installers/index.js";
-import chalk from "chalk";
 import * as p from "@clack/prompts";
 import { intro, outro } from "@clack/prompts";
+import chalk from "chalk";
+import { Command, InvalidArgumentError } from "commander";
+
+import { DEFAULT_APP_NAME } from "~/consts.js";
+import {
+  type AvailableLibraries,
+  type AvailablePackages,
+  type AvailableTemplates,
+} from "~/installers/index.js";
+import { getUserPkgManager } from "~/utils/getUserPkgManager.js";
+import { getVersion } from "~/utils/getVersion.js";
 import {
   AppNameErrorMessage,
   validateAppName,
 } from "~/utils/validateAppName.js";
-import { getUserPkgManager } from "~/utils/getUserPkgManager.js";
 import {
   LibraryErrorMessage,
   validateLibrary,

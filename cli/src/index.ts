@@ -1,5 +1,5 @@
-import { logger } from "./utils/logger.js";
 import { runCli } from "./cli/index.js";
+import { logger } from "./utils/logger.js";
 
 const main = async () => {
   const {

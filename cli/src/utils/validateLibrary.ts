@@ -1,6 +1,9 @@
 // validate if the input string is the type AvailableLibraries
 
-import { AvailableLibraries, availableLibraries } from "~/installers/index.js";
+import {
+  availableLibraries,
+  type AvailableLibraries,
+} from "~/installers/index.js";
 
 export const LibraryErrorMessage =
   "Invalid library. Please choose from the following: " +
