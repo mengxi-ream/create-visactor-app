@@ -26,6 +26,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
+    "lint": "eslint . --ext .ts,.tsx",
     "start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "link-cli": "pnpm link --global",

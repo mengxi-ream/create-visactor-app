@@ -10,5 +10,5 @@ export const TITLE_TEXT = `  ▗▖  ▗▖ ▗▄▄▖▗▖ ▗▖ ▗▄▖ 
   ▐▌  ▐▌▐▌   ▐▛▀▜▌▐▛▀▜▌▐▛▀▚▖ █  
    ▝▚▞▘ ▝▚▄▄▖▐▌ ▐▌▐▌ ▐▌▐▌ ▐▌ █  
 `;
-export const CREATE_VCHART_APP = "create-vchart-app";
-export const DEFAULT_APP_NAME = "my-vchart-app";
+export const CREATE_VISACTOR_APP = "create-visactor-app";
+export const DEFAULT_APP_NAME = "my-visactor-app";
