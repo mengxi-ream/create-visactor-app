@@ -6,11 +6,10 @@ const main = async () => {
     library,
     template,
     appName,
-    packages,
     flags: { noGit, noInstall },
   } = await runCli();
 
-  console.log(appName, packages, noGit, noInstall, library, template);
+  console.log(appName, noGit, noInstall, library, template);
 };
 
 main().catch((err) => {
