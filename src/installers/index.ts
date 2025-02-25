@@ -7,3 +7,6 @@ export const availableTemplates = [
   "svelte",
 ] as const;
 export type AvailableTemplates = (typeof availableTemplates)[number];
+
+export const availableLibraries = ["vchart", "vtable"] as const;
+export type AvailableLibraries = (typeof availableLibraries)[number];

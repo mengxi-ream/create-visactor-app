@@ -1,12 +1,23 @@
-import { Command } from "commander";
+import { Command, InvalidArgumentError } from "commander";
 import { DEFAULT_APP_NAME } from "~/consts.js";
 import { getVersion } from "~/utils/getVersion.js";
-import { AvailablePackages, AvailableTemplates } from "~/installers/index.js";
+import {
+  AvailableLibraries,
+  AvailablePackages,
+  AvailableTemplates,
+} from "~/installers/index.js";
 import chalk from "chalk";
 import * as p from "@clack/prompts";
 import { intro, outro } from "@clack/prompts";
-import { validateAppName } from "~/utils/validateAppName.js";
+import {
+  AppNameErrorMessage,
+  validateAppName,
+} from "~/utils/validateAppName.js";
 import { getUserPkgManager } from "~/utils/getUserPkgManager.js";
+import {
+  LibraryErrorMessage,
+  validateLibrary,
+} from "~/utils/validateLibrary.js";
 
 interface CliFlags {
   noGit: boolean;
@@ -14,20 +25,22 @@ interface CliFlags {
 }
 
 interface CliResults {
+  library: AvailableLibraries;
+  template: AvailableTemplates;
   appName: string;
   packages: AvailablePackages[];
   flags: CliFlags;
-  template: AvailableTemplates;
 }
 
-const defaultOptions = {
+const defaultOptions: CliResults = {
+  library: "vchart",
+  template: "nextjs-minimal",
   appName: DEFAULT_APP_NAME,
   packages: ["tailwind"],
   flags: {
     noGit: false,
     noInstall: false,
   },
-  template: "nextjs-minimal",
 };
 
 export const runCli = async (): Promise<CliResults> => {
@@ -35,12 +48,30 @@ export const runCli = async (): Promise<CliResults> => {
 
   const program = new Command();
   program
-    .name("create-vchart-app")
-    .description("A CLI for creating web applications with VChart")
+    .name("create-visactor-app")
+    .description("A CLI for creating web applications with VisActor")
     .version(getVersion(), "-v, --version", "display the version number")
     .argument(
+      "[library]",
+      "The type of VisActor library to integrate: vchart, vtable",
+      (value) => {
+        if (!value) return value;
+        if (validateLibrary(value)) {
+          return value;
+        }
+        throw new InvalidArgumentError(LibraryErrorMessage);
+      }
+    )
+    .argument(
       "[name]",
-      "The name of the application, as well as the name of the directory to create"
+      "The name of the application, as well as the name of the directory to create",
+      (value) => {
+        if (!value) return value;
+        if (validateAppName(value)) {
+          return value;
+        }
+        throw new InvalidArgumentError(AppNameErrorMessage);
+      }
     )
     .option(
       "--noGit",
@@ -60,17 +91,46 @@ export const runCli = async (): Promise<CliResults> => {
     )
     .parse(process.argv);
 
-  const cliAppName = program.args[0];
+  const cliLibrary = program.args[0] as AvailableLibraries | undefined;
+  if (cliLibrary) {
+    cliResults.library = cliLibrary;
+  }
+
+  const cliAppName = program.args[1];
   if (cliAppName) {
     cliResults.appName = cliAppName;
   }
 
   const pkgManager = getUserPkgManager();
 
-  intro(chalk.bgHex("#68C2CD")(`create-vchart-app`));
+  intro(chalk.bgHex("#68C2CD")(`create-visactor-app (v${getVersion()})`));
 
   const project = await p.group(
     {
+      ...(!cliLibrary && {
+        library: () =>
+          p.select({
+            message: "Which library would you like?",
+            options: [
+              {
+                value: "vchart",
+                label: "VChart",
+              },
+              {
+                value: "vtable",
+                label: "VTable",
+                hint: "Not available yet",
+              },
+            ],
+          }),
+      }),
+      _: ({ results }) => {
+        if (results.library === "vtable") {
+          p.note("VTable is not available yet");
+          throw new Error("VTable is not available yet");
+        }
+        return undefined;
+      },
       ...(!cliAppName && {
         name: () =>
           p.text({
@@ -79,7 +139,11 @@ export const runCli = async (): Promise<CliResults> => {
             placeholder: DEFAULT_APP_NAME,
             validate: (value) => {
               const validatedName = value || DEFAULT_APP_NAME;
-              return validateAppName(validatedName);
+              if (validateAppName(validatedName)) {
+                return;
+              } else {
+                return AppNameErrorMessage;
+              }
             },
           }),
       }),
@@ -105,11 +169,11 @@ export const runCli = async (): Promise<CliResults> => {
           ],
         });
       },
-      tailwind: () => {
-        return p.confirm({
-          message: "Will you be using Tailwind CSS for styling?",
-        });
-      },
+      // tailwind: () => {
+      //   return p.confirm({
+      //     message: "Will you be using Tailwind CSS for styling?",
+      //   });
+      // },
       ...(!cliResults.flags.noGit && {
         git: () => {
           return p.confirm({
@@ -139,11 +203,12 @@ export const runCli = async (): Promise<CliResults> => {
   );
 
   const packages: AvailablePackages[] = [];
-  if (project.tailwind) {
-    packages.push("tailwind");
-  }
+  // if (project.tailwind) {
+  //   packages.push("tailwind");
+  // }
 
   return {
+    library: cliLibrary ?? cliResults.library,
     appName: project.name ?? cliResults.appName,
     packages,
     flags: {

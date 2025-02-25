@@ -1,16 +1,18 @@
 {
-  "name": "create-vchart-app",
+  "name": "create-visactor-app",
   "version": "0.0.0",
-  "description": "Create web application with VChart",
+  "description": "Create web application with VisActor",
   "license": "MIT",
   "keywords": [
-    "create-vchart-app",
+    "create-visactor-app",
+    "visactor",
     "vchart",
+    "vtable",
     "typescript"
   ],
   "type": "module",
   "bin": {
-    "vchart": "./dist/index.js"
+    "visactor": "./dist/index.js"
   },
   "exports": {
     ".": {

@@ -1,16 +1,12 @@
-import { intro, outro, text, select, confirm, isCancel } from "@clack/prompts";
-import { Command } from "commander";
-import chalk from "chalk";
 import { logger } from "./utils/logger.js";
-import { getVersion } from "./utils/getVersion.js";
-import { renderTitle } from "./utils/renderTitle.js";
 import { runCli } from "./cli/index.js";
 
 const main = async () => {
   const {
+    library,
+    template,
     appName,
     packages,
-    template,
     flags: { noGit, noInstall },
   } = await runCli();
 
