@@ -1,0 +1,42 @@
+---
+title: Installation
+description: To scaffold a new project with Create VisActor App.
+icon: Wrench
+---
+
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+
+## Installation
+
+<Tabs groupId='package-manager' persist items={['npm', 'pnpm', 'yarn']}>
+
+```bash tab="npm"
+npm create visactor-app@latest
+```
+
+```bash tab="pnpm"
+pnpm create visactor-app@latest
+```
+
+```bash tab="yarn"
+yarn create visactor-app@latest
+```
+
+</Tabs>
+
+## Advanced usage
+
+You can add more options to the CLI command.
+
+| Option/Flag   | Description                                                                 |
+| ------------- | --------------------------------------------------------------------------- |
+| `[library]`   | The type of VisActor libraries to integrate: vchart, vtable                 |
+| `[name]`      | The name of the application, as well as the name of the directory to create |
+| `--noGit`     | Explicitly tell the CLI to not initialize a new git repo in the project     |
+| `--noInstall` | Explicitly tell the CLI to not run the package manager's install command    |
+
+For example, if you want to create a new vchart project with the name `my-app` and not initialize a git repo, you can run:
+
+```bash
+npx create-visactor-app@latest vchart my-app --noGit
+```

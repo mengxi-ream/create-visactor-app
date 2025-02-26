@@ -1,0 +1,11 @@
+{
+  "title": "Create VisActor App",
+  "pages": [
+    "---Getting started---",
+    "index",
+    "installation",
+    "---Integration---",
+    "nextjs",
+    "svelte"
+  ]
+}

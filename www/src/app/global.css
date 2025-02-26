@@ -2,4 +2,14 @@
 @import "fumadocs-ui/css/neutral.css";
 @import "fumadocs-ui/css/preset.css";
 
+:root {
+  --color-fd-primary: hsl(231, 93%, 73%);
+  --color-fd-primary-foreground: white;
+}
+
+[data-theme="dark"] {
+  --color-fd-primary: hsl(230, 93%, 33%);
+  --color-fd-primary-foreground: white;
+}
+
 @source '../../node_modules/fumadocs-ui/dist/**/*.js';
