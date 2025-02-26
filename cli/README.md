@@ -2,16 +2,7 @@
 
 Create VisActor App is a CLI tool that helps you quickly create web applications with the [VisActor](https://visactor.io) library. In other words, it provides boilerplates for integrating frontend frameworks with the VisActor library.
 
-We support the following frontend frameworks:
-
-- [Next.js](https://nextjs.org)
-- [Svelte](https://svelte.dev)
-- More coming soon...
-
-The VisActor libraries we support are:
-
-- [VChart](https://visactor.io/vchart)
-- [VTable](https://visactor.io/vtable) (WIP)
+[Documentation](https://cva.mengxi.work/docs)
 
 ## Installation
 
