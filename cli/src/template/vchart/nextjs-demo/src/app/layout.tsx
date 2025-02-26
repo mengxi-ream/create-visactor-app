@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
-import { Gabarito } from "next/font/google";
 import { SideNav } from "@/components/nav";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { type Metadata } from "next";
+import { Gabarito } from "next/font/google";
+
 import "@/style/globals.css";
+
 import { Providers } from "./providers";
 
 const gabarito = Gabarito({ subsets: ["latin"], variable: "--font-gabarito" });
@@ -24,7 +26,7 @@ export default function RootLayout({
         <Providers>
           <div className="flex min-h-[100dvh]">
             <SideNav />
-            <div className="flex-grow overflow-auto">{children}</div>
+            <div className="grow overflow-auto">{children}</div>
           </div>
         </Providers>
       </body>
