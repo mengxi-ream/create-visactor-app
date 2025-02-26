@@ -8,7 +8,7 @@ pnpm link-cli
 
 Todo:
 
-- [ ] Include TailwindCSS or not
-- [ ] ESLint
-- [ ] Prettier
-- [ ] Commitlint https://www.yuque.com/arvinxx-fe/workflow/32
+- [ ] Next.js template:
+  - [ ] Bug: Calendar
+  - [ ] Improve: Font
+- [ ] Next.js minimal template

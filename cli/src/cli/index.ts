@@ -171,10 +171,7 @@ export const runCli = async (): Promise<CliResults> => {
         });
       },
       _template: ({ results }) => {
-        if (
-          results.template === "svelte" ||
-          results.template === "nextjs-minimal"
-        ) {
+        if (results.template === "svelte") {
           p.note("This template is not available yet");
           throw new Error("This template is not available yet");
         }

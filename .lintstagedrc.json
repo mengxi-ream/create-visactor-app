@@ -1,4 +1,6 @@
 {
-  "**/*.+(js|jsx|ts|tsx|mjs|cjs|svelte)": ["eslint"],
+  "**/*.+(js|jsx|ts|tsx|mjs|cjs|svelte)": [
+    "eslint --ignore-pattern 'cli/src/template/**'"
+  ],
   "*": ["prettier --write . --cache --ignore-unknown"]
 }
