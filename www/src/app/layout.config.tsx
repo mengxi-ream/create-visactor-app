@@ -9,6 +9,7 @@ import Image from "next/image";
  * - Docs Layout: app/docs/layout.tsx
  */
 export const baseOptions: BaseLayoutProps = {
+  githubUrl: "https://github.com/mengxi-ream/create-visactor-app",
   nav: {
     title: (
       <>
