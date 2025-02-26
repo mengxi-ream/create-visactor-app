@@ -9,6 +9,11 @@
     "vtable",
     "typescript"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mengxi-ream/create-visactor-app.git",
+    "directory": "cli"
+  },
   "license": "MIT",
   "author": "MengXi",
   "type": "module",
@@ -21,6 +26,15 @@
   "bin": {
     "visactor": "./dist/index.js"
   },
+  "files": [
+    "dist",
+    "template",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "pnpm-lock.yaml",
+    "package.json"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
