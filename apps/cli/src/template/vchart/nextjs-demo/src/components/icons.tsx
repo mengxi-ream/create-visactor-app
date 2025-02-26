@@ -5,7 +5,7 @@ export const VisActorLogo: React.FC<IconSvgProps> = ({
   width,
   height,
   ...props
-}) => (
+}: IconSvgProps) => (
   <svg
     fill="none"
     height={size || height}

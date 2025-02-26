@@ -1,3 +1,5 @@
+import chalk from "chalk";
+
 import { DEFAULT_APP_NAME } from "~/consts.js";
 import { getUserPkgManager } from "~/utils/getUserPkgManager.js";
 import { logger } from "~/utils/logger.js";
@@ -15,7 +17,7 @@ export const logNextSteps = async ({
 }) => {
   const pkgManager = getUserPkgManager();
 
-  logger.info("Next steps:");
+  logger.info(chalk.hex("#193cf7").bold("∧") + " Next steps:\n");
   if (projectName !== ".") {
     logger.info(`  cd ${projectName}`);
   }

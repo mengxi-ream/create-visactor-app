@@ -28,6 +28,7 @@ pnpm link-cli
 - [ ] Template:
   - [ ] Next.js demo template:
     - [ ] Bug: Calendar (important)
+    - [ ] Bug: add grid css back
     - [ ] Improve: Font
   - [ ] Next.js minimal template
     - [ ] Upgrade Tailwind to v4

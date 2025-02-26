@@ -14,13 +14,16 @@
       "dependsOn": ["^build"]
     },
     "lint": {
-      "dependsOn": ["^build"]
+      "cache": false
     },
     "format": {
       "cache": false
     },
     "format:check": {
       "cache": false
+    },
+    "create-visactor-app#dev": {
+      "env": ["npm_config_user_agent"]
     }
   }
 }

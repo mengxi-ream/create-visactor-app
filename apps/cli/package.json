@@ -41,7 +41,7 @@
     "format": "prettier '**/*.{cjs,mjs,ts,tsx,md,json}' --ignore-path ../.gitignore --ignore-unknown --no-error-on-unmatched-pattern --write",
     "format:check": "prettier '**/*.{cjs,mjs,ts,tsx,md,json}' --ignore-path ../.gitignore --ignore-unknown --no-error-on-unmatched-pattern --check",
     "link-cli": "pnpm link --global",
-    "lint": "eslint . --ext .ts,.tsx",
+    "lint": "eslint . --report-unused-disable-directives",
     "relink-cli": "pnpm uninstall --global create-visactor-app && pnpm link --global",
     "start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -59,8 +59,8 @@
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.13.5",
-    "prettier-plugin-tailwindcss": "^0.6.11",
     "tsup": "^8.3.6",
+    "@repo/eslint-config": "workspace:*",
     "typescript": "^5.7.3"
   },
   "engines": {

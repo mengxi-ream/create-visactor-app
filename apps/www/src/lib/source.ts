@@ -9,7 +9,6 @@ export const source = loader({
 
   icon(icon) {
     if (icon && icon in icons)
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       return createElement(icons[icon as keyof typeof icons]);
   },
 });
