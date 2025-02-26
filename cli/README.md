@@ -2,7 +2,7 @@
 
 Create VisActor App is a CLI tool that helps you quickly create web applications with the [VisActor](https://visactor.io) library. In other words, it provides boilerplates for integrating frontend frameworks with the VisActor library.
 
-[Documentation](https://cva.mengxi.work/docs)
+[Official Documentation](https://cva.mengxi.work/docs)
 
 ## Installation
 
