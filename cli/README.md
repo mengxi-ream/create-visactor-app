@@ -1,3 +1,5 @@
+This is the CLI for create-visactor-app.
+
 For development:
 
 ```bash
