@@ -1,4 +1,25 @@
-This is the CLI for create-visactor-app.
+## What is Create VisActor App
+
+Create VisActor App is a CLI tool that helps you quickly create web applications with the [VisActor](https://visactor.io) library. In other words, it provides boilerplates for integrating frontend frameworks with the VisActor library.
+
+We support the following frontend frameworks:
+
+- [Next.js](https://nextjs.org)
+- [Svelte](https://svelte.dev)
+- More coming soon...
+
+The VisActor libraries we support are:
+
+- [VChart](https://visactor.io/vchart)
+- [VTable](https://visactor.io/vtable) (WIP)
+
+## Installation
+
+```bash
+npx create-visactor-app@latest
+```
+
+## Development
 
 For development:
 
@@ -6,7 +27,7 @@ For development:
 pnpm link-cli
 ```
 
-Todo:
+## Todo
 
 - [ ] Workflow: changesets, versioning, release workflow
 - [ ] ESLint, Prettier better monorepo configuration (important)
