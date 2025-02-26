@@ -223,8 +223,8 @@ export const runCli = async (): Promise<CliResults> => {
     appName: project.name ?? cliResults.appName,
     packages,
     flags: {
-      noGit: project.git ?? cliResults.flags.noGit,
-      noInstall: project.install ?? cliResults.flags.noInstall,
+      noGit: !project.git || cliResults.flags.noGit,
+      noInstall: !project.install || cliResults.flags.noInstall,
     },
     template: project.template ?? cliResults.template,
   };
