@@ -1,8 +1,5 @@
 "use client";
 
-import { format, parseISO } from "date-fns";
-import { useAtom } from "jotai";
-import { Calendar as CalendarIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import {
@@ -13,6 +10,9 @@ import {
 import { averageTicketsCreated } from "@/data/average-tickets-created";
 import { dateRangeAtom } from "@/lib/atoms";
 import { cn } from "@/lib/utils";
+import { format, parseISO } from "date-fns";
+import { useAtom } from "jotai";
+import { Calendar as CalendarIcon } from "lucide-react";
 
 export function DatePickerWithRange({
   className,

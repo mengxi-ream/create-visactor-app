@@ -1,12 +1,9 @@
 "use client";
 
-import {
-  type IPieChartSpec,
-  VChart,
-} from "@visactor/react-vchart";
-import type { Datum } from "@visactor/vchart/esm/typings";
 import { ticketByChannels } from "@/data/ticket-by-channels";
 import { addThousandsSeparator } from "@/lib/utils";
+import { VChart, type IPieChartSpec } from "@visactor/react-vchart";
+import type { Datum } from "@visactor/vchart/esm/typings";
 
 const data = ticketByChannels.reduce(
   (acc, curr) => {

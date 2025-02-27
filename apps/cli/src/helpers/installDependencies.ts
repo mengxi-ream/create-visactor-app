@@ -1,12 +1,11 @@
-import chalk from "chalk";
-import { execa, type Options } from "execa";
-import ora, { type Ora } from "ora";
-
 import {
   getUserPkgManager,
   type PackageManager,
 } from "~/utils/getUserPkgManager.js";
 import { logger } from "~/utils/logger.js";
+import chalk from "chalk";
+import { execa, type Options } from "execa";
+import ora, { type Ora } from "ora";
 
 const execWithSpinner = async (
   projectDir: string,
@@ -15,7 +14,7 @@ const execWithSpinner = async (
     args?: string[];
     stdout?: Options["stdout"];
     onDataHandle?: (spinner: Ora) => (data: Buffer) => void;
-  }
+  },
 ) => {
   const { onDataHandle, args = ["install"], stdout = "pipe" } = options;
 
@@ -36,7 +35,7 @@ const execWithSpinner = async (
 
 const runInstallCommand = async (
   pkgManager: PackageManager,
-  projectDir: string
+  projectDir: string,
 ): Promise<Ora | null> => {
   switch (pkgManager) {
     // When using npm, inherit the stderr stream so that the progress bar is shown
@@ -82,6 +81,6 @@ export const installDependencies = async ({
   // If the spinner was used to show the progress, use succeed method on it
   // If not, use the succeed on a new spinner
   (installSpinner ?? ora()).succeed(
-    chalk.green("Successfully installed dependencies!\n")
+    chalk.green("Successfully installed dependencies!\n"),
   );
 };

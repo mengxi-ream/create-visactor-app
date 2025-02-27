@@ -1,6 +1,6 @@
-import { CirclePercent } from "lucide-react";
 import { convertions } from "@/data/convertions";
 import { addThousandsSeparator } from "@/lib/utils";
+import { CirclePercent } from "lucide-react";
 import ChartTitle from "../../components/chart-title";
 import Chart from "./chart";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { BarChart, Bar, Axis, Legend } from "@visactor/react-vchart";
+import { Axis, Bar, BarChart, Legend } from "@visactor/react-vchart";
 import { useRef } from "react";
 
 export default function Chart() {

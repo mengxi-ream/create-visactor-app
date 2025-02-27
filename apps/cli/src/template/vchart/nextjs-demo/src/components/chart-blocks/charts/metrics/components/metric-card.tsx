@@ -1,6 +1,6 @@
-import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { chartTitle } from "@/components/primitives";
 import { cn } from "@/lib/utils";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 
 export default function MetricCard({
   title,
@@ -22,7 +22,7 @@ export default function MetricCard({
         <span className="text-xl font-medium">{value}</span>
         <ChangeIndicator change={change} />
       </div>
-      <div className="text-xs text-muted-foreground">Compare to last month</div>
+      <div className="text-muted-foreground text-xs">Compare to last month</div>
     </section>
   );
 }
@@ -31,7 +31,7 @@ function ChangeIndicator({ change }: { change: number }) {
   return (
     <span
       className={cn(
-        "flex items-center rounded-sm px-1 py-0.5 text-xs text-muted-foreground",
+        "text-muted-foreground flex items-center rounded-sm px-1 py-0.5 text-xs",
         change > 0
           ? "bg-green-50 text-green-500 dark:bg-green-950"
           : "bg-red-50 text-red-500 dark:bg-red-950",

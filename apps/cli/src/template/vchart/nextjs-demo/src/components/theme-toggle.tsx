@@ -1,8 +1,5 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
-import * as React from "react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -11,6 +8,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useHydration } from "@/hooks/use-hydration";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+import * as React from "react";
 
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme();
@@ -43,7 +43,7 @@ export function ThemeToggle() {
 
 function AutoThemeBadge() {
   return (
-    <span className="absolute -right-2 -top-2 flex h-4 items-center rounded-full bg-secondary px-1.5 text-[0.6rem] text-secondary-foreground ring-2 ring-background duration-300 animate-in zoom-in-50">
+    <span className="bg-secondary text-secondary-foreground ring-background animate-in zoom-in-50 absolute -right-2 -top-2 flex h-4 items-center rounded-full px-1.5 text-[0.6rem] ring-2 duration-300">
       auto
     </span>
   );

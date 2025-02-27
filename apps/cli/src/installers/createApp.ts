@@ -1,18 +1,17 @@
 import path from "path";
 import * as p from "@clack/prompts";
-import chalk from "chalk";
-import fs from "fs-extra";
-import ora from "ora";
-
 import { PKG_ROOT } from "~/consts.js";
 import { getUserPkgManager } from "~/utils/getUserPkgManager.js";
 import { logger } from "~/utils/logger.js";
+import chalk from "chalk";
+import fs from "fs-extra";
+import ora from "ora";
 
 export const createApp = async (
   appName: string,
   library: string,
   template: string,
-  noInstall: boolean
+  noInstall: boolean,
 ) => {
   const pkgManager = getUserPkgManager();
   const templateDir = path.join(PKG_ROOT, "src", "template", library, template);
@@ -30,13 +29,13 @@ export const createApp = async (
     if (fs.readdirSync(targetDir).length === 0) {
       if (appName !== ".")
         spinner.info(
-          `${chalk.cyan.bold(appName)} exists but is empty, continuing...\n`
+          `${chalk.cyan.bold(appName)} exists but is empty, continuing...\n`,
         );
     } else {
       spinner.stopAndPersist();
       const overwriteDir = await p.select({
         message: `${chalk.redBright.bold("Warning:")} ${chalk.cyan.bold(
-          appName
+          appName,
         )} already exists and isn't empty. How would you like to proceed?`,
         options: [
           {
@@ -76,7 +75,7 @@ export const createApp = async (
 
       if (overwriteDir === "clear") {
         spinner.info(
-          `Emptying ${chalk.cyan.bold(appName)} and creating VisActor app..\n`
+          `Emptying ${chalk.cyan.bold(appName)} and creating VisActor app..\n`,
         );
         fs.emptyDirSync(targetDir);
       }
@@ -90,7 +89,7 @@ export const createApp = async (
   const scaffoldedName = appName === "." ? "App" : chalk.cyan.bold(appName);
 
   spinner.succeed(
-    `${scaffoldedName} ${chalk.green("scaffolded successfully!")}\n`
+    `${scaffoldedName} ${chalk.green("scaffolded successfully!")}\n`,
   );
 
   return targetDir;

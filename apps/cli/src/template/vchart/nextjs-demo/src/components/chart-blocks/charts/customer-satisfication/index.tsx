@@ -1,8 +1,8 @@
-import { SmilePlus, ThumbsDown, ThumbsUp } from "lucide-react";
 import {
   customerSatisfication,
   totalCustomers,
 } from "@/data/customer-satisfication";
+import { SmilePlus, ThumbsDown, ThumbsUp } from "lucide-react";
 import ChartTitle from "../../components/chart-title";
 import LinearProgress from "./components/linear-progress";
 
@@ -52,7 +52,7 @@ export default function CustomerSatisfication() {
 function TotalCustomers() {
   return (
     <div className="flex flex-col items-start justify-center">
-      <div className="text-xs text-muted-foreground">Responses Received</div>
+      <div className="text-muted-foreground text-xs">Responses Received</div>
       <div className="text-2xl font-medium">{totalCustomers} Customers</div>
     </div>
   );

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function User() {
   return (
-    <div className="flex h-16 items-center border-b border-border px-2">
+    <div className="border-border flex h-16 items-center border-b px-2">
       <div className="flex w-full items-center justify-between rounded-md px-2 py-1 hover:bg-slate-200 dark:hover:bg-slate-800">
         <div className="flex items-center">
           <Image
@@ -15,7 +15,7 @@ export default function User() {
           />
           <div className="flex flex-col">
             <span className="text-sm font-medium">Name</span>
-            <span className="text-xs text-muted-foreground">Agent Admin</span>
+            <span className="text-muted-foreground text-xs">Agent Admin</span>
           </div>
         </div>
         <ChevronDown size={16} />

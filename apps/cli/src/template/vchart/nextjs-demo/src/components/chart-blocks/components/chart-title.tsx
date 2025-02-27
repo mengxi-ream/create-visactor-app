@@ -1,5 +1,5 @@
-import type { LucideIcon } from "lucide-react";
 import { chartTitle } from "@/components/primitives";
+import type { LucideIcon } from "lucide-react";
 
 export default function ChartTitle({
   title,
@@ -10,7 +10,7 @@ export default function ChartTitle({
 }) {
   return (
     <h2 className={`${chartTitle({})} flex items-center`}>
-      {Icon && <Icon className="mr-2 shrink-0 text-primary" size={16} />}{" "}
+      {Icon && <Icon className="text-primary mr-2 shrink-0" size={16} />}{" "}
       {title}
     </h2>
   );

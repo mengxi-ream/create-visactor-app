@@ -3,9 +3,7 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { type Metadata } from "next";
 import { Gabarito } from "next/font/google";
-
 import "@/style/globals.css";
-
 import { Providers } from "./providers";
 
 const gabarito = Gabarito({ subsets: ["latin"], variable: "--font-gabarito" });

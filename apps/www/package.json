@@ -6,8 +6,8 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "format": "prettier . --write",
-    "format:check": "prettier . --check",
+    "format": "prettier --write",
+    "format:check": "prettier --check",
     "postinstall": "fumadocs-mdx",
     "lint": "eslint . --report-unused-disable-directives",
     "start": "next start"

@@ -1,9 +1,9 @@
 "use client";
 
+import { numberToPercentage } from "@/lib/utils";
 import { VChart } from "@visactor/react-vchart";
 import type { ILinearProgressChartSpec } from "@visactor/vchart";
 import type { Datum } from "@visactor/vchart/esm/typings";
-import { numberToPercentage } from "@/lib/utils";
 
 const getSpec = (
   label: string,
@@ -84,7 +84,7 @@ export default function LinearProgress({
       <div className="mb-1 flex items-center gap-x-2">
         {icon}
         <div>
-          <div className="text-xs text-muted-foreground">{label}</div>
+          <div className="text-muted-foreground text-xs">{label}</div>
           <div className="text-xl font-medium">
             {numberToPercentage(percentage)}
           </div>

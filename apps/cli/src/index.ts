@@ -1,7 +1,6 @@
 import path from "path";
 import fs from "fs-extra";
 import { type PackageJson } from "type-fest";
-
 import { runCli } from "./cli/index.js";
 import { initializeGit } from "./helpers/git.js";
 import { installDependencies } from "./helpers/installDependencies.js";
@@ -28,7 +27,7 @@ const main = async () => {
 
   // Write name to package.json
   const pkgJson = fs.readJSONSync(
-    path.join(targetDir, "package.json")
+    path.join(targetDir, "package.json"),
   ) as CVAPackageJSON;
   pkgJson.name = appName;
   pkgJson.cvaMetadata = { initVersion: getVersion() };
@@ -59,7 +58,7 @@ main().catch((err) => {
     logger.error(err.message);
   } else {
     logger.error(
-      "An unknown error has occurred. Please open an issue on github with the below:"
+      "An unknown error has occurred. Please open an issue on github with the below:",
     );
     logger.error(err);
   }

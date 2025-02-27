@@ -1,8 +1,5 @@
 import * as p from "@clack/prompts";
 import { intro, outro } from "@clack/prompts";
-import chalk from "chalk";
-import { Command, InvalidArgumentError } from "commander";
-
 import { DEFAULT_APP_NAME } from "~/consts.js";
 import {
   type AvailableLibraries,
@@ -19,6 +16,8 @@ import {
   LibraryErrorMessage,
   validateLibrary,
 } from "~/utils/validateLibrary.js";
+import chalk from "chalk";
+import { Command, InvalidArgumentError } from "commander";
 
 interface CliFlags {
   noGit: boolean;
@@ -61,7 +60,7 @@ export const runCli = async (): Promise<CliResults> => {
           return value;
         }
         throw new InvalidArgumentError(LibraryErrorMessage);
-      }
+      },
     )
     .argument(
       "[name]",
@@ -72,23 +71,23 @@ export const runCli = async (): Promise<CliResults> => {
           return value;
         }
         throw new InvalidArgumentError(AppNameErrorMessage);
-      }
+      },
     )
     .option(
       "--noGit",
       "Explicitly tell the CLI to not initialize a new git repo in the project",
-      false
+      false,
     )
     .option(
       "--noInstall",
       "Explicitly tell the CLI to not run the package manager's install command",
-      false
+      false,
     )
     .addHelpText(
       "afterAll",
       `\n The create-vchart-app was inspired by ${chalk
         .hex("#E8DCFF")
-        .bold("@mengxi_ream")}\n`
+        .bold("@mengxi_ream")}\n`,
     )
     .parse(process.argv);
 
@@ -207,7 +206,7 @@ export const runCli = async (): Promise<CliResults> => {
         outro(chalk.red("Operation cancelled"));
         process.exit(1);
       },
-    }
+    },
   );
 
   const packages: AvailablePackages[] = [];
