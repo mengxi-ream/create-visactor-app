@@ -7,6 +7,7 @@
       "dependsOn": ["^build"]
     },
     "dev": {
+      "inputs": [".env", ".env.local"],
       "cache": false,
       "persistent": true
     },
@@ -23,7 +24,7 @@
       "cache": false
     },
     "create-visactor-app#dev": {
-      "env": ["npm_config_user_agent"]
+      "env": ["MOCK_NPM_CONFIG_USER_AGENT", "npm_config_user_agent"]
     }
   }
 }
