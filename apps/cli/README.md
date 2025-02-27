@@ -6,9 +6,9 @@ Create VisActor App is a CLI tool that helps you quickly create web applications
 
 ## Installation
 
-```bash
-npx create-visactor-app@latest
-```
+You can use `npm`, `yarn` or `pnpm` to install the CLI tool.
+
+Please refer to the [Installation documentation](https://cva.mengxi.work/docs/installation) for more details.
 
 ## Development
 
