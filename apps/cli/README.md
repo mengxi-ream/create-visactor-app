@@ -20,7 +20,7 @@ pnpm link-cli
 
 ## Todo
 
-- [ ] Workflow: changesets, versioning, release workflow
+- [ ] Workflow: changesets, versioning, release workflow (important)
 - [x] ESLint, Prettier better monorepo configuration (important)
 - [ ] More ESLint and TS Configuration rules
 - [ ] CLI:
@@ -31,11 +31,12 @@ pnpm link-cli
     - [ ] Bug: Calendar (important)
     - [ ] Bug: add grid css back
     - [ ] Improve: Font
+    - [ ] Delete prettier config
   - [ ] Next.js minimal template
     - [ ] Upgrade Tailwind to v4
   - [ ] Svelte Kit template (important)
-- [ ] Assemble options: tailwind, prettier, biome
 - [ ] Github Management:
+  - [ ] Protect main branch
   - [ ] Contribution guidelines (important)
   - [ ] Issue templates (important)
   - [ ] PR templates + PR linting (important)
