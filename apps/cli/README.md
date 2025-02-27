@@ -38,3 +38,4 @@ pnpm link-cli
   - [ ] Contribution guidelines (important)
   - [ ] Issue templates (important)
   - [ ] PR templates + PR linting (important)
+- [ ] CI version of CLI and testing

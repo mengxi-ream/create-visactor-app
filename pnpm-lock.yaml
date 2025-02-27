@@ -63,6 +63,9 @@ importers:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -103,6 +106,9 @@ importers:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@tailwindcss/postcss':
         specifier: ^4.0.7
         version: 4.0.8
@@ -163,6 +169,8 @@ importers:
       typescript-eslint:
         specifier: ^8.24.0
         version: 8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
+
+  packages/typescript-config: {}
 
 packages:
 

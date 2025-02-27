@@ -57,6 +57,7 @@
     "type-fest": "^4.35.0"
   },
   "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.13.5",
     "tsup": "^8.3.6",
