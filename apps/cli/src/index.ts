@@ -16,8 +16,6 @@ type CVAPackageJSON = PackageJson & {
 };
 
 const main = async () => {
-  console.log("user agent:", process.env.npm_config_user_agent);
-
   const {
     library,
     template,
