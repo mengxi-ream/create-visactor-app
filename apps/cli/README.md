@@ -21,7 +21,7 @@ pnpm link-cli
 ## Todo
 
 - [ ] Workflow: changesets, versioning, release workflow
-- [ ] ESLint, Prettier better monorepo configuration (important)
+- [x] ESLint, Prettier better monorepo configuration (important)
 - [ ] More ESLint and TS Configuration rules
 - [ ] CLI:
   - [ ] execa new version grammars
