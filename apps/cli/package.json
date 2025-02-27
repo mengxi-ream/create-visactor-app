@@ -39,7 +39,7 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "format": "prettier '**/*.{cjs,mjs,ts,tsx,md,json}' --ignore-path ../.gitignore --ignore-unknown --no-error-on-unmatched-pattern --write",
-    "format:check": "prettier '**/*.{cjs,mjs,ts,tsx,md,json}' --ignore-path ../.gitignore --ignore-unknown --no-error-on-unmatched-pattern --check",
+    "format:check": "prettier . --check",
     "link-cli": "pnpm link --global",
     "lint": "eslint . --report-unused-disable-directives",
     "relink-cli": "pnpm uninstall --global create-visactor-app && pnpm link --global",
