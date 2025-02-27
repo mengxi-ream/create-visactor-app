@@ -10,10 +10,8 @@
     "dev": "turbo run dev",
     "dev:cli": "turbo dev --filter=create-visactor-app",
     "dev:www": "turbo dev --filter=www",
-    "format": "turbo format",
-    "format:check": "turbo format:check",
-    "format-all": "turbo format && prettier --write '*.{cjs,json}' --ignore-unknown --no-error-on-unmatched-pattern",
-    "format-all:check": "turbo format:check && prettier --check '*.{cjs,json}' --ignore-unknown --no-error-on-unmatched-pattern",
+    "format": "turbo format && prettier --write '*.{cjs,json}' --ignore-unknown --no-error-on-unmatched-pattern",
+    "format:check": "turbo format:check && prettier --check '*.{cjs,json}' --ignore-unknown --no-error-on-unmatched-pattern",
     "lint": "turbo run lint",
     "prepare": "husky"
   },

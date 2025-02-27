@@ -38,9 +38,9 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "format": "prettier --write",
-    "format:check": "prettier --check",
-    "link-cli": "pnpm link --global",
+    "format": "prettier . --write --ignore-unknown",
+    "format:check": "prettier . --check --ignore-unknown",
+    "link-cli": "pnpm link --global --ignore-unknown",
     "lint": "eslint . --report-unused-disable-directives",
     "relink-cli": "pnpm uninstall --global create-visactor-app && pnpm link --global",
     "start": "node dist/index.js",
