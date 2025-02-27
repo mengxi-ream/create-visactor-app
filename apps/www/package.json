@@ -24,6 +24,7 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@tailwindcss/postcss": "^4.0.7",
+    "@repo/prettier-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/mdx": "^2.0.13",
     "@types/node": "22.13.4",

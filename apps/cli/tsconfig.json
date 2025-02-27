@@ -5,7 +5,9 @@
     "paths": {
       "~/*": ["./src/*"]
     },
-    "checkJs": true
+    "checkJs": true,
+    "jsx": "react-jsx"
   },
-  "include": ["src", "tsup.config.ts", "prettier.config.mjs"]
+  "include": ["src", "tsup.config.ts"],
+  "exclude": ["src/template/vchart/", "src/template/vtable/"]
 }
