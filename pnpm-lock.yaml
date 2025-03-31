@@ -155,7 +155,7 @@ importers:
         version: 5.7.3
 
   packages/eslint-config:
-    devDependencies:
+    dependencies:
       "@eslint/js":
         specifier: ^9.21.0
         version: 9.21.0
@@ -183,12 +183,13 @@ importers:
       globals:
         specifier: ^15.15.0
         version: 15.15.0
-      typescript:
-        specifier: ^5.7.3
-        version: 5.7.3
       typescript-eslint:
         specifier: ^8.24.0
         version: 8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
+    devDependencies:
+      typescript:
+        specifier: ^5.7.3
+        version: 5.7.3
 
   packages/prettier-config:
     devDependencies:
