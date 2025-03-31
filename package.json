@@ -6,6 +6,7 @@
   "author": "MengXi <contact@mengxi.work> (https://mengxi.work)",
   "type": "module",
   "scripts": {
+    "typecheck": "turbo run typecheck",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "dev:cli": "turbo dev --filter=create-visactor-app",
@@ -16,14 +17,15 @@
     "prepare": "husky"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.28.1",
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
+    "@manypkg/cli": "^0.23.0",
     "@types/node": "^22.13.5",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
     "turbo": "^2.4.2",
-    "typescript": "^5.7.3",
-    "@changesets/cli": "^2.28.1"
+    "typescript": "^5.7.3"
   },
   "packageManager": "pnpm@9.9.0",
   "engines": {

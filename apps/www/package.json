@@ -10,7 +10,8 @@
     "format:check": "prettier . --check --ignore-unknown",
     "postinstall": "fumadocs-mdx",
     "lint": "eslint . --report-unused-disable-directives",
-    "start": "next start"
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "fumadocs-core": "15.0.12",
