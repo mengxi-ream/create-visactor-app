@@ -147,6 +147,9 @@ importers:
       "@types/react-dom":
         specifier: ^19.0.4
         version: 19.0.4(@types/react@19.0.10)
+      eslint:
+        specifier: ^9.21.0
+        version: 9.21.0(jiti@2.4.2)
       postcss:
         specifier: ^8.5.3
         version: 8.5.3
@@ -158,7 +161,7 @@ importers:
         version: 5.7.3
 
   packages/eslint-config:
-    dependencies:
+    devDependencies:
       "@eslint/js":
         specifier: ^9.21.0
         version: 9.21.0
@@ -186,13 +189,12 @@ importers:
       globals:
         specifier: ^15.15.0
         version: 15.15.0
-      typescript-eslint:
-        specifier: ^8.24.0
-        version: 8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
-    devDependencies:
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
+      typescript-eslint:
+        specifier: ^8.24.0
+        version: 8.25.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3)
 
   packages/prettier-config:
     devDependencies:
