@@ -135,6 +135,9 @@ importers:
         specifier: ^19.0.0
         version: 19.0.0(react@19.0.0)
     devDependencies:
+      "@ianvs/prettier-plugin-sort-imports":
+        specifier: ^4.4.1
+        version: 4.4.1(prettier@3.5.2)
       "@repo/eslint-config":
         specifier: workspace:*
         version: link:../../packages/eslint-config
