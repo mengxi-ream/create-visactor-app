@@ -6,5 +6,9 @@ import { config } from "@repo/prettier-config/base";
  */
 export default {
   ...config,
-  plugins: [...config.plugins, "prettier-plugin-tailwindcss"],
+  plugins: [
+    ...config.plugins,
+    "prettier-plugin-tailwindcss",
+    "@ianvs/prettier-plugin-sort-imports",
+  ],
 };

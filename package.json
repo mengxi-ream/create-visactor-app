@@ -6,28 +6,30 @@
   "author": "MengXi <contact@mengxi.work> (https://mengxi.work)",
   "type": "module",
   "scripts": {
-    "typecheck": "turbo run typecheck",
     "build": "turbo run build",
     "build:cli": "turbo run build --filter=create-visactor-app",
     "build:www": "turbo run build --filter=www",
+    "check": "turbo lint typecheck format:check && manypkg check",
     "dev": "turbo run dev",
     "dev:cli": "turbo dev --filter=create-visactor-app",
     "dev:www": "turbo dev --filter=www",
     "format": "turbo format && prettier --write '*.{cjs,json}' --ignore-unknown --no-error-on-unmatched-pattern",
     "format:check": "turbo format:check && prettier --check '*.{cjs,json}' --ignore-unknown --no-error-on-unmatched-pattern",
     "lint": "turbo run lint",
-    "check": "turbo lint typecheck format:check && manypkg check",
-    "prepare": "husky"
+    "prepare": "husky",
+    "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
     "@changesets/cli": "^2.28.1",
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
     "@manypkg/cli": "^0.23.0",
+    "@repo/prettier-config": "workspace:*",
     "@types/node": "^22.13.5",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
     "prettier": "^3.5.2",
+    "prettier-plugin-packagejson": "^2.5.8",
     "turbo": "^2.4.4",
     "typescript": "^5.7.3"
   },

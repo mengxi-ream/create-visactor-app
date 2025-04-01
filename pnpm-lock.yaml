@@ -19,6 +19,9 @@ importers:
       "@manypkg/cli":
         specifier: ^0.23.0
         version: 0.23.0
+      "@repo/prettier-config":
+        specifier: workspace:*
+        version: link:packages/prettier-config
       "@types/node":
         specifier: ^22.13.5
         version: 22.13.5
@@ -31,6 +34,9 @@ importers:
       prettier:
         specifier: ^3.5.2
         version: 3.5.2
+      prettier-plugin-packagejson:
+        specifier: ^2.5.8
+        version: 2.5.8(prettier@3.5.2)
       turbo:
         specifier: ^2.4.4
         version: 2.4.4
