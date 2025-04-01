@@ -22,7 +22,6 @@ pnpm link-cli
 
 - [x] Workflow: changesets, versioning, release workflow (important)
 - [x] ESLint, Prettier better monorepo configuration (important)
-- [ ] More ESLint and TS Configuration rules
 - [ ] CLI:
   - [ ] execa new version grammars
   - [ ] refactor and restructure the code
@@ -35,9 +34,11 @@ pnpm link-cli
   - [ ] Next.js minimal template
     - [ ] Upgrade Tailwind to v4
   - [ ] Svelte Kit template (important)
+- [ ] Documentation Website
 - [ ] Github Management:
-  - [ ] Protect main branch
-  - [ ] Contribution guidelines (important)
-  - [ ] Issue templates (important)
-  - [ ] PR templates + PR linting (important)
-- [ ] CI version of CLI and testing
+  - [x] Protect main branch
+  - [-] Contribution guidelines (important)
+  - [-] Issue templates (important)
+  - [-] PR templates + PR linting (important)
+- [ ] More ESLint and TS Configuration rules
+- [ ] E2E Testing
