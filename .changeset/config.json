@@ -10,11 +10,6 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": [
-    "www",
-    "@repo/eslint-config",
-    "@repo/prettier-config",
-    "@repo/typescript-config"
-  ],
+  "ignore": ["www"],
   "changedFilePatterns": ["src/**", "template/**"]
 }
