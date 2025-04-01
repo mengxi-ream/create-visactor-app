@@ -20,7 +20,7 @@ pnpm link-cli
 
 ## Todo
 
-- [ ] Workflow: changesets, versioning, release workflow (important)
+- [x] Workflow: changesets, versioning, release workflow (important)
 - [x] ESLint, Prettier better monorepo configuration (important)
 - [ ] More ESLint and TS Configuration rules
 - [ ] CLI:
