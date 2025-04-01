@@ -8,6 +8,8 @@
   "scripts": {
     "typecheck": "turbo run typecheck",
     "build": "turbo run build",
+    "build:cli": "turbo run build --filter=create-visactor-app",
+    "build:www": "turbo run build --filter=www",
     "dev": "turbo run dev",
     "dev:cli": "turbo dev --filter=create-visactor-app",
     "dev:www": "turbo dev --filter=www",
