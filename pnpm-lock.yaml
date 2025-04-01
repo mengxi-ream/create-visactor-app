@@ -86,6 +86,9 @@ importers:
       eslint:
         specifier: ^9.21.0
         version: 9.21.0(jiti@2.4.2)
+      prettier:
+        specifier: ^3.5.2
+        version: 3.5.2
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -139,8 +142,8 @@ importers:
         specifier: ^2.0.13
         version: 2.0.13
       "@types/node":
-        specifier: 22.13.4
-        version: 22.13.4
+        specifier: 22.13.5
+        version: 22.13.5
       "@types/react":
         specifier: ^19.0.10
         version: 19.0.10
@@ -153,6 +156,9 @@ importers:
       postcss:
         specifier: ^8.5.3
         version: 8.5.3
+      prettier:
+        specifier: ^3.5.2
+        version: 3.5.2
       tailwindcss:
         specifier: ^4.0.7
         version: 4.0.8
@@ -2393,12 +2399,6 @@ packages:
     resolution:
       {
         integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==,
-      }
-
-  "@types/node@22.13.4":
-    resolution:
-      {
-        integrity: sha512-ywP2X0DYtX3y08eFVx5fNIw7/uIv8hYUKgXoK8oayJlLnKcRfEYCxWMVE1XagUdVtCJlZT1AU4LXEABW+L1Peg==,
       }
 
   "@types/node@22.13.5":
@@ -8499,10 +8499,6 @@ snapshots:
   "@types/ms@2.1.0": {}
 
   "@types/node@12.20.55": {}
-
-  "@types/node@22.13.4":
-    dependencies:
-      undici-types: 6.20.0
 
   "@types/node@22.13.5":
     dependencies:
