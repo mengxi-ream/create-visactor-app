@@ -23,6 +23,9 @@
     "format:check": {
       "cache": false
     },
+    "typecheck": {
+      "cache": false
+    },
     "create-visactor-app#dev": {
       "env": ["MOCK_NPM_CONFIG_USER_AGENT", "npm_config_user_agent"]
     }
