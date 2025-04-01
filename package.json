@@ -16,6 +16,7 @@
     "format": "turbo format && prettier --write '*.{cjs,json}' --ignore-unknown --no-error-on-unmatched-pattern",
     "format:check": "turbo format:check && prettier --check '*.{cjs,json}' --ignore-unknown --no-error-on-unmatched-pattern",
     "lint": "turbo run lint",
+    "check": "turbo lint typecheck format:check && manypkg check",
     "prepare": "husky"
   },
   "devDependencies": {
