@@ -1,11 +1,8 @@
 /**
- * @type {import('prettier').Config & import("@ianvs/prettier-plugin-sort-imports").PluginConfig}
+ * @type {import('prettier').Config}
  */
 export const config = {
-  plugins: [
-    "prettier-plugin-packagejson",
-    "@ianvs/prettier-plugin-sort-imports",
-  ],
+  plugins: ["prettier-plugin-packagejson"],
   arrowParens: "always",
   printWidth: 80,
   singleQuote: false,
