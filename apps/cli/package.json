@@ -28,7 +28,7 @@
   },
   "files": [
     "dist",
-    "template",
+    "src/template",
     "README.md",
     "LICENSE",
     "CHANGELOG.md",
