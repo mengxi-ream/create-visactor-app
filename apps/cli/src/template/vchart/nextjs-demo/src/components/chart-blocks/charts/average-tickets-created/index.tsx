@@ -1,12 +1,10 @@
 "use client";
 
-import { ticketChartDataAtom } from "@/lib/atoms";
+import { averageTicketsCreated } from "@/data/average-tickets-created";
 import type { TicketMetric } from "@/types/types";
-import { useAtomValue } from "jotai";
 import { FilePlus2 } from "lucide-react";
 import ChartTitle from "../../components/chart-title";
 import Chart from "./chart";
-import { DatePickerWithRange } from "./components/date-range-picker";
 import MetricCard from "./components/metric-card";
 
 const calMetricCardValue = (
@@ -21,15 +19,13 @@ const calMetricCardValue = (
 };
 
 export default function AverageTicketsCreated() {
-  const ticketChartData = useAtomValue(ticketChartDataAtom);
-  const avgCreated = calMetricCardValue(ticketChartData, "created");
-  const avgResolved = calMetricCardValue(ticketChartData, "resolved");
+  const avgCreated = calMetricCardValue(averageTicketsCreated, "created");
+  const avgResolved = calMetricCardValue(averageTicketsCreated, "resolved");
 
   return (
     <section className="flex h-full flex-col gap-2">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <ChartTitle title="Average Tickets Created" icon={FilePlus2} />
-        <DatePickerWithRange className="" />
       </div>
       <div className="flex flex-wrap">
         <div className="my-4 flex w-52 shrink-0 flex-col justify-center gap-6">

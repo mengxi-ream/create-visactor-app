@@ -1,10 +1,9 @@
 "use client";
 
-import { ticketChartDataAtom } from "@/lib/atoms";
+import { averageTicketsCreated } from "@/data/average-tickets-created";
 import type { TicketMetric } from "@/types/types";
 import { VChart } from "@visactor/react-vchart";
 import type { IBarChartSpec } from "@visactor/vchart";
-import { useAtomValue } from "jotai";
 
 const generateSpec = (data: TicketMetric[]): IBarChartSpec => ({
   type: "bar",
@@ -44,7 +43,6 @@ const generateSpec = (data: TicketMetric[]): IBarChartSpec => ({
 });
 
 export default function Chart() {
-  const ticketChartData = useAtomValue(ticketChartDataAtom);
-  const spec = generateSpec(ticketChartData);
+  const spec = generateSpec(averageTicketsCreated);
   return <VChart spec={spec} />;
 }
