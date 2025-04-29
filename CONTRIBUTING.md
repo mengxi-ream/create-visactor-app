@@ -11,8 +11,10 @@ Thank you for your interest in contributing to Create VisActor App! This documen
    ```
 3. Link the CLI for local development:
    ```bash
+   cd apps/cli
    pnpm link-cli
    ```
+4. Then you can use `visactor` command to test the local CLI.
 
 ## Project Structure
 
