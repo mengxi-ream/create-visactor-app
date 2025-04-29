@@ -26,13 +26,11 @@ pnpm link-cli
   - [ ] execa new version grammars
   - [ ] refactor and restructure the code
 - [ ] Template:
-  - [ ] Next.js demo template:
-    - [ ] Bug: Calendar (important)
+  - [x] Next.js demo template:
+    - [x] Bug: Calendar (important)
     - [ ] Bug: add grid css back
-    - [ ] Improve: Font
-    - [ ] Delete prettier config
-  - [ ] Next.js minimal template
-    - [ ] Upgrade Tailwind to v4
+    - [x] Improve: Font
+    - [x] Delete prettier config
   - [ ] Svelte Kit template (important)
 - [ ] Documentation Website
 - [ ] Github Management:
