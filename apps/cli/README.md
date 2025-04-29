@@ -10,14 +10,6 @@ You can use `npm`, `yarn` or `pnpm` to install the CLI tool.
 
 Please refer to the [Installation documentation](https://cva.mengxi.work/docs/installation) for more details.
 
-## Development
-
-For development:
-
-```bash
-pnpm link-cli
-```
-
 ## Todo
 
 - [x] Workflow: changesets, versioning, release workflow (important)
@@ -28,10 +20,9 @@ pnpm link-cli
 - [ ] Template:
   - [x] Next.js demo template:
     - [x] Bug: Calendar (important)
-    - [ ] Bug: add grid css back
     - [x] Improve: Font
     - [x] Delete prettier config
-  - [ ] Svelte Kit template (important)
+  - [x] Svelte Kit template (important)
 - [ ] Documentation Website
 - [ ] Github Management:
   - [x] Protect main branch

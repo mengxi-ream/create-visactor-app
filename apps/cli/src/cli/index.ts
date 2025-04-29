@@ -152,30 +152,25 @@ export const runCli = async (): Promise<CliResults> => {
           message: "Which template would you like?",
           options: [
             {
-              value: "nextjs-minimal",
-              label: "Next.js minimal",
-              hint: "A bare-bones Next.js starter with VChart integration",
-            },
-            {
               value: "nextjs-demo",
               label: "Next.js demo",
               hint: "Full featured Next.js dashboard demo",
             },
             {
-              value: "svelte",
+              value: "svelte-demo",
               label: "Svelte",
               hint: "SvelteKit starter with VChart components",
             },
           ],
         });
       },
-      _template: ({ results }) => {
-        if (results.template === "svelte") {
-          p.note("This template is not available yet");
-          throw new Error("This template is not available yet");
-        }
-        return undefined;
-      },
+      // _template: ({ results }) => {
+      //   if (results.template === "svelte-demo") {
+      //     p.note("This template is not available yet");
+      //     throw new Error("This template is not available yet");
+      //   }
+      //   return undefined;
+      // },
       // tailwind: () => {
       //   return p.confirm({
       //     message: "Will you be using Tailwind CSS for styling?",
