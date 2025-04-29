@@ -34,7 +34,7 @@ interface CliResults {
 
 const defaultOptions: CliResults = {
   library: "vchart",
-  template: "nextjs-minimal",
+  template: "nextjs-demo",
   appName: DEFAULT_APP_NAME,
   packages: ["tailwind"],
   flags: {
