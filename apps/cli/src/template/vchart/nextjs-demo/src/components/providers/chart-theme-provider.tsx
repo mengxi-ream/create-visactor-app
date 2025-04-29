@@ -72,12 +72,7 @@ export function useChartTheme() {
 }
 
 const registerTheme = () => {
-  // Temporary solution to get the font from the body
-  // issue: https://github.com/VisActor/VChart/issues/3145
-  const font = window
-    .getComputedStyle(document.body)
-    .getPropertyValue("--font-gabarito")
-    .trim();
+  const font = "'Gabarito', 'Gabarito Fallback'";
   const lightTheme: Partial<ITheme> = {
     ...customLightTheme,
     fontFamily: font,
