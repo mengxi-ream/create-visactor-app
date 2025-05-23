@@ -24,10 +24,6 @@ export function TableThemeProvider({
   const [theme, setTheme] = useState<TableTheme>("system");
 
   useEffect(() => {
-    registerTheme();
-  }, []);
-
-  useEffect(() => {
     const updateTheme = () => {
       if (modeTheme === "light" || modeTheme === "dark") {
         setTheme(modeTheme);
@@ -83,3 +79,5 @@ const registerTheme = () => {
   VTable.register.theme("light", lightTheme);
   VTable.register.theme("dark", darkTheme);
 };
+
+registerTheme();
