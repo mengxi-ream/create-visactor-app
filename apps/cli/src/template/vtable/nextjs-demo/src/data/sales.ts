@@ -1050,3 +1050,5 @@ export const sales = [
     ],
   },
 ];
+
+export type Sales = typeof sales;

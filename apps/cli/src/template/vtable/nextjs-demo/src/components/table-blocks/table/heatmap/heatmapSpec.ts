@@ -6,7 +6,7 @@ enum HeatMapColorEnum {
   Max = "rgb(0,0,255)",
 }
 
-class HeatMapGenerator {
+class HeatMapSpecGenerator {
   spec: VTable.TYPES.PivotTableConstructorOptions;
   records: HeatMapSales;
   theme: string;
@@ -56,7 +56,7 @@ class HeatMapGenerator {
       hover: {
         disableHover: true,
       },
-      theme: this.theme,
+      theme: this.theme as VTable.TYPES.ITableThemeDefine,
     };
   }
 
@@ -100,4 +100,4 @@ class HeatMapGenerator {
   }
 }
 
-export default HeatMapGenerator;
+export default HeatMapSpecGenerator;

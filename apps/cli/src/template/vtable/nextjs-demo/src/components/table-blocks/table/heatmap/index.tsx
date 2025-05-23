@@ -4,7 +4,7 @@ import { useTableTheme } from "@/components/providers/table-theme-provider";
 import { heatMapSales } from "@/data/sales-heatmap";
 import * as VTable from "@visactor/vtable";
 import { useEffect } from "react";
-import HeatMapGenerator from "./heatmap";
+import HeatMapSpecGenerator from "./heatmapSpec";
 
 export default function HeatMap() {
   const tableTheme = useTableTheme();
@@ -14,7 +14,7 @@ export default function HeatMap() {
     if (!theme || theme === "system") {
       return;
     }
-    const heatMapGenerator = new HeatMapGenerator({
+    const heatMapGenerator = new HeatMapSpecGenerator({
       records: heatMapSales,
       theme,
     });

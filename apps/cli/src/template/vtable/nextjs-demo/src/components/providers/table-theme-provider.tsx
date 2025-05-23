@@ -1,6 +1,7 @@
 "use client";
 
 import { customDarkTheme, customLightTheme } from "@/config/table-theme";
+import { registerIcon } from "@/lib/registerIcon";
 import * as VTable from "@visactor/vtable";
 import { useTheme } from "next-themes";
 import { createContext, useContext, useEffect, useState } from "react";
@@ -81,3 +82,4 @@ const registerTheme = () => {
 };
 
 registerTheme();
+registerIcon();
