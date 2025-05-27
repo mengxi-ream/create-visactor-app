@@ -11,7 +11,7 @@ const icons: { name: string; spec: ColumnIconOption }[] = [
       width: 22,
       height: 22,
       name: "ellipsis",
-      positionType: VTable.TYPES.IconPosition.left,
+      positionType: VTable.TYPES.IconPosition.inlineFront,
       marginRight: 0,
       cursor: "pointer",
     },

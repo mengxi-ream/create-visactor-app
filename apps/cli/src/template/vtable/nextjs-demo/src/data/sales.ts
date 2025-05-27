@@ -4,8 +4,6 @@ export const sales = [
     productName: "CC-12430",
     city: "Columbus",
     sales: 209.3,
-    profit: 2,
-    discount: 0,
     status: "success",
     trend: [
       {
@@ -33,14 +31,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 3867.596724617671,
+    progress: [
+      {
+        value: 0.8777751189223307,
+        label: "88%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-30",
     productName: "PO-18865",
     city: "New York City",
     sales: 90.93,
-    profit: 7,
-    discount: 0,
     status: "fail",
     trend: [
       {
@@ -68,14 +72,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 2315.1595248965846,
+    progress: [
+      {
+        value: 0.5254398459785533,
+        label: "53%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-30",
     productName: "PO-18865",
     city: "New York City",
     sales: 52.776,
-    profit: 3,
-    discount: 0.2,
     status: "success",
     trend: [
       {
@@ -103,14 +113,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 1723.3135856502943,
+    progress: [
+      {
+        value: 0.39111673095498095,
+        label: "39%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-30",
     productName: "EB-13975",
     city: "Fairfield",
     sales: 20.72,
-    profit: 2,
-    discount: 0.2,
     status: "success",
     trend: [
       {
@@ -138,14 +154,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 2904.0791735871094,
+    progress: [
+      {
+        value: 0.6590988211696972,
+        label: "66%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-30",
     productName: "JM-15580",
     city: "Loveland",
     sales: 3.024,
-    profit: 3,
-    discount: 0.2,
     status: "success",
     trend: [
       {
@@ -173,14 +195,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 2234.394253320919,
+    progress: [
+      {
+        value: 0.507109665530608,
+        label: "51%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-30",
     productName: "EB-13975",
     city: "Fairfield",
     sales: 13.904,
-    profit: 2,
-    discount: 0.2,
     status: "fail",
     trend: [
       {
@@ -208,14 +236,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 3236.0935337411415,
+    progress: [
+      {
+        value: 0.7344515441185814,
+        label: "73%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-30",
     productName: "PO-18865",
     city: "New York City",
     sales: 323.136,
-    profit: 4,
-    discount: 0.2,
     status: "fail",
     trend: [
       {
@@ -243,14 +277,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 3971.488149503243,
+    progress: [
+      {
+        value: 0.9013539236238366,
+        label: "90%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-29",
     productName: "JG-15160",
     city: "Los Angeles",
     sales: 393.568,
-    profit: 4,
-    discount: 0.2,
     status: "fail",
     trend: [
       {
@@ -278,14 +318,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 2792.593229269889,
+    progress: [
+      {
+        value: 0.6337963930731147,
+        label: "63%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-29",
     productName: "BP-11185",
     city: "Anaheim",
     sales: 101.12,
-    profit: 8,
-    discount: 0,
     status: "fail",
     trend: [
       {
@@ -313,14 +359,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 3030.0112685036765,
+    progress: [
+      {
+        value: 0.6876798929468886,
+        label: "69%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-29",
     productName: "JG-15160",
     city: "Los Angeles",
     sales: 302.376,
-    profit: 3,
-    discount: 0.2,
     status: "success",
     trend: [
       {
@@ -348,14 +400,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 2804.9359434520334,
+    progress: [
+      {
+        value: 0.6365976487831777,
+        label: "64%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-29",
     productName: "KH-16360",
     city: "Louisville",
     sales: 1207.84,
-    profit: 8,
-    discount: 0,
     status: "fail",
     trend: [
       {
@@ -383,14 +441,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 2454.5182935256717,
+    progress: [
+      {
+        value: 0.5570681848194802,
+        label: "56%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-29",
     productName: "BS-11755",
     city: "Edmonds",
     sales: 19.6,
-    profit: 5,
-    discount: 0,
     status: "fail",
     trend: [
       {
@@ -418,14 +482,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 2019.1461904803998,
+    progress: [
+      {
+        value: 0.4582577796152491,
+        label: "46%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-29",
     productName: "KH-16360",
     city: "Louisville",
     sales: 12.53,
-    profit: 1,
-    discount: 0,
     status: "success",
     trend: [
       {
@@ -453,14 +523,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 4056.2987076801246,
+    progress: [
+      {
+        value: 0.9206022070127776,
+        label: "92%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-29",
     productName: "KH-16360",
     city: "Louisville",
     sales: 300.98,
-    profit: 1,
-    discount: 0,
     status: "fail",
     trend: [
       {
@@ -488,14 +564,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 1821.4802664972835,
+    progress: [
+      {
+        value: 0.4133962694100133,
+        label: "41%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-29",
     productName: "KH-16360",
     city: "Louisville",
     sales: 258.75,
-    profit: 3,
-    discount: 0,
     status: "success",
     trend: [
       {
@@ -523,14 +605,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 3258.9893588254117,
+    progress: [
+      {
+        value: 0.7396478939495366,
+        label: "74%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-29",
     productName: "KH-16360",
     city: "Louisville",
     sales: 34.58,
-    profit: 1,
-    discount: 0,
     status: "fail",
     trend: [
       {
@@ -558,14 +646,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 3662.5596956955046,
+    progress: [
+      {
+        value: 0.8312406906299323,
+        label: "83%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-29",
     productName: "BS-11755",
     city: "Edmonds",
     sales: 68.46,
-    profit: 2,
-    discount: 0,
     status: "success",
     trend: [
       {
@@ -593,14 +687,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 3839.559640482418,
+    progress: [
+      {
+        value: 0.871411928389975,
+        label: "87%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-29",
     productName: "KB-16600",
     city: "Grand Rapids",
     sales: 209.7,
-    profit: 2,
-    discount: 0,
     status: "success",
     trend: [
       {
@@ -628,14 +728,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 2755.5809842760737,
+    progress: [
+      {
+        value: 0.6253962339913169,
+        label: "63%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-29",
     productName: "MC-17845",
     city: "New York City",
     sales: 6.03,
-    profit: 3,
-    discount: 0,
     status: "success",
     trend: [
       {
@@ -663,14 +769,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 3066.5828374341063,
+    progress: [
+      {
+        value: 0.6959800378567118,
+        label: "70%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-28",
     productName: "KH-16690",
     city: "San Francisco",
     sales: 725.84,
-    profit: 4,
-    discount: 0,
     status: "fail",
     trend: [
       {
@@ -698,14 +810,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 2661.118631137209,
+    progress: [
+      {
+        value: 0.6039574157369791,
+        label: "60%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-28",
     productName: "LO-17170",
     city: "Peoria",
     sales: 7.968,
-    profit: 3,
-    discount: 0.6,
     status: "fail",
     trend: [
       {
@@ -733,14 +851,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 2610.5232338700293,
+    progress: [
+      {
+        value: 0.5924744758093393,
+        label: "59%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-28",
     productName: "SV-20935",
     city: "Albuquerque",
     sales: 118.25,
-    profit: 5,
-    discount: 0,
     status: "success",
     trend: [
       {
@@ -768,14 +892,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 3547.8822160082436,
+    progress: [
+      {
+        value: 0.8052139237414715,
+        label: "81%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-28",
     productName: "CS-12400",
     city: "Fargo",
     sales: 2.48,
-    profit: 1,
-    discount: 0,
     status: "success",
     trend: [
       {
@@ -803,14 +933,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 3516.9976077851147,
+    progress: [
+      {
+        value: 0.7982044699162135,
+        label: "80%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-28",
     productName: "JG-15310",
     city: "Long Beach",
     sales: 340.704,
-    profit: 6,
-    discount: 0.2,
     status: "success",
     trend: [
       {
@@ -838,14 +974,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 1861.3730571302694,
+    progress: [
+      {
+        value: 0.42245018623105274,
+        label: "42%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-28",
     productName: "JF-15415",
     city: "New York City",
     sales: 14.85,
-    profit: 3,
-    discount: 0,
     status: "success",
     trend: [
       {
@@ -873,14 +1015,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 1976.3606859912306,
+    progress: [
+      {
+        value: 0.44854734340247543,
+        label: "45%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-28",
     productName: "SV-20935",
     city: "Albuquerque",
     sales: 4.28,
-    profit: 1,
-    discount: 0,
     status: "success",
     trend: [
       {
@@ -908,14 +1056,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 2328.2847622999066,
+    progress: [
+      {
+        value: 0.5284187001980877,
+        label: "53%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-28",
     productName: "GH-14665",
     city: "Round Rock",
     sales: 78.8528,
-    profit: 2,
-    discount: 0.32,
     status: "fail",
     trend: [
       {
@@ -943,14 +1097,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 3699.161850513367,
+    progress: [
+      {
+        value: 0.8395477771970404,
+        label: "84%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-28",
     productName: "LO-17170",
     city: "Peoria",
     sales: 2.96,
-    profit: 2,
-    discount: 0.6,
     status: "fail",
     trend: [
       {
@@ -978,14 +1138,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 2381.7129361839557,
+    progress: [
+      {
+        value: 0.5405445563884097,
+        label: "54%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-28",
     productName: "GH-14665",
     city: "Round Rock",
     sales: 27.168,
-    profit: 2,
-    discount: 0.2,
     status: "fail",
     trend: [
       {
@@ -1013,14 +1179,20 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 2997.243749012011,
+    progress: [
+      {
+        value: 0.6802431007044322,
+        label: "68%",
+        goal: 1,
+      },
+    ],
   },
   {
     orderDate: "2017-12-28",
     productName: "LO-17170",
     city: "Peoria",
     sales: 113.372,
-    profit: 2,
-    discount: 0.3,
     status: "fail",
     trend: [
       {
@@ -1048,7 +1220,17 @@ export const sales = [
         x: "2018-01-03",
       },
     ],
+    totalSales: 4406.136197350898,
+    progress: [
+      {
+        value: 1,
+        label: "100%",
+        goal: 1,
+      },
+    ],
   },
 ];
+
+export const columns = ["productName", "city", "orderDate", "sales"];
 
 export type Sales = typeof sales;

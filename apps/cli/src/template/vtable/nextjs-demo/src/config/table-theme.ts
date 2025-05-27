@@ -1,5 +1,10 @@
 import type { TYPES } from "@visactor/vtable";
 
+export enum BgColorEnum {
+  dark = "#282A2E",
+  light = "#fff",
+}
+
 export const FONT_FAMILY = "'Gabarito', 'Gabarito Fallback'";
 
 export const fontConfig = {
@@ -9,15 +14,24 @@ export const fontConfig = {
 };
 
 const lightHeaderStyle = {
-  bgColor: "#F7F7F7",
-  color: "RGB(96,96,96)",
+  bgColor: "#f7f7f7",
+  color: "#606060",
   ...fontConfig,
+};
+
+const lightStyle = {
+  bgColor: BgColorEnum.light,
+};
+
+const darkStyle = {
+  bgColor: BgColorEnum.dark,
 };
 
 export const customDarkTheme: TYPES.ITableThemeDefine = {
   defaultStyle: {
     borderLineWidth: 0,
     ...fontConfig,
+    ...darkStyle,
   },
   headerStyle: {
     ...fontConfig,
@@ -30,6 +44,7 @@ export const customDarkTheme: TYPES.ITableThemeDefine = {
   },
   bodyStyle: {
     ...fontConfig,
+    ...darkStyle,
   },
 };
 
@@ -42,6 +57,7 @@ export const customLightTheme: TYPES.ITableThemeDefine = {
   rowHeaderStyle: lightHeaderStyle,
   cornerHeaderStyle: lightHeaderStyle,
   bodyStyle: {
+    ...lightStyle,
     ...fontConfig,
   },
 };
