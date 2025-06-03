@@ -14,8 +14,8 @@ import { ListTable, register } from "@visactor/vtable";
 import { InputEditor } from "@visactor/vtable-editors";
 import { Ellipsis, LayoutGrid, List, Search } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { registerEvent } from "./registerEvent";
-import TableSpecGenerator from "./tableSpec";
+import { registerEvent } from "./event-center";
+import TableSpecGenerator from "./table-spec";
 
 const tableSpecGenerator = new TableSpecGenerator();
 const input_editor = new InputEditor();

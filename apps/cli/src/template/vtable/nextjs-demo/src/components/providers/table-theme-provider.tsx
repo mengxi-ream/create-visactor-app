@@ -6,7 +6,7 @@ import * as VTable from "@visactor/vtable";
 import { useTheme } from "next-themes";
 import { createContext, useContext, useEffect, useState } from "react";
 
-type TableTheme = "light" | "dark" | "system";
+export type TableTheme = "light" | "dark" | "system";
 
 interface TableThemeContextI {
   theme: TableTheme | undefined;

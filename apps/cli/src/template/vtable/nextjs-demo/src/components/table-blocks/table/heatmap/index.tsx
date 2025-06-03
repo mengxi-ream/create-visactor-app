@@ -4,7 +4,7 @@ import { useTableTheme } from "@/components/providers/table-theme-provider";
 import { heatMapSales } from "@/data/sales-heatmap";
 import * as VTable from "@visactor/vtable";
 import { useEffect } from "react";
-import HeatMapSpecGenerator from "./heatmapSpec";
+import HeatMapSpecGenerator from "./heatmap-spec";
 
 export default function HeatMap() {
   const tableTheme = useTableTheme();

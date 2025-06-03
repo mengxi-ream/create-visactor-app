@@ -10,3 +10,5 @@ const theme = {
 };
 
 export default theme;
+
+export type GanttThemeEnum = keyof typeof theme;
