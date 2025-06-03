@@ -1,3 +1,4 @@
+import { BgColorEnum } from "@/config/table-theme";
 import type { HeatMapSales } from "@/data/sales-heatmap";
 import * as VTable from "@visactor/vtable";
 
@@ -24,6 +25,7 @@ class HeatMapSpecGenerator {
   }
 
   generateSpec(): VTable.TYPES.PivotTableConstructorOptions {
+    const theme = this.theme as keyof typeof BgColorEnum;
     const getScaleColor = this.getScaleColor.bind(this);
     return {
       heightMode: "standard",
@@ -31,19 +33,28 @@ class HeatMapSpecGenerator {
         {
           dimensionKey: "state",
           title: "State",
-          headerStyle: { textAlign: "center" },
+          headerStyle: { textAlign: "center", bgColor: BgColorEnum[theme] },
         },
       ],
-      rows: [{ dimensionKey: "category", title: "Category", width: "auto" }],
+      rows: [
+        {
+          dimensionKey: "category",
+          title: "Category",
+          width: "auto",
+          headerStyle: { bgColor: BgColorEnum[theme] },
+        },
+      ],
       indicators: [
         {
           indicatorKey: "sales",
           title: "Sales",
-          width: 200,
+          width: 110,
           format: () => {
             return "";
           },
           style: {
+            borderLineWidth: 5,
+            borderColor: BgColorEnum[theme],
             bgColor(args) {
               const { dataValue } = args;
               return getScaleColor(Number(dataValue));
@@ -51,8 +62,12 @@ class HeatMapSpecGenerator {
           },
         },
       ],
+      corner: {
+        headerStyle: { bgColor: BgColorEnum[theme] },
+      },
       records: this.records,
       hideIndicatorName: true,
+      defaultRowHeight: 60,
       hover: {
         disableHover: true,
       },

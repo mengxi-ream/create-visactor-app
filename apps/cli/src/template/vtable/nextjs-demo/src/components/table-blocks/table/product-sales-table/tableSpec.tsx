@@ -199,7 +199,7 @@ class TableSpecGenerator {
         field: "status",
         title: "Status",
         sort: true,
-        width: 40,
+        width: 60,
         customLayout: ({ table, row, col, rect }) => {
           const { height, width } = rect ?? table.getCellRect(col, row);
           const { status } = table.getCellOriginRecord(col, row);
@@ -232,7 +232,7 @@ class TableSpecGenerator {
       {
         field: "totalSales",
         title: "Total Sales",
-        width: 30,
+        width: 60,
         fieldFormat: (record) => {
           const text = record.totalSales?.toFixed(2);
           return text ? `$${text}` : "";
@@ -302,7 +302,7 @@ class TableSpecGenerator {
         title: "Share",
         cellType: "button",
         text: "share",
-        width: 30,
+        width: 60,
         style: {
           color: this.buttonColor,
           padding: 14,
@@ -314,7 +314,7 @@ class TableSpecGenerator {
         field: "options",
         title: "Options",
         icon: EllipsisIcon[theme as keyof typeof EllipsisIcon],
-        width: 30,
+        width: 60,
       },
     ] as TYPES.ColumnsDefine;
 
