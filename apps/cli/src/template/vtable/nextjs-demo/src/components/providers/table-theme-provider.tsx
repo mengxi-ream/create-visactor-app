@@ -1,6 +1,6 @@
 "use client";
 
-import { customDarkTheme, customLightTheme } from "@/config/table-theme";
+import { dark, light } from "@/config/table-theme";
 import { registerIcon } from "@/lib/registerIcon";
 import * as VTable from "@visactor/vtable";
 import { useTheme } from "next-themes";
@@ -67,15 +67,9 @@ export function useTableTheme() {
 }
 
 const registerTheme = () => {
-  const lightTheme: VTable.TYPES.PartialTableThemeDefine =
-    VTable.themes.ARCO.extends({
-      ...customLightTheme,
-    });
+  const lightTheme: VTable.TYPES.PartialTableThemeDefine = light;
 
-  const darkTheme: VTable.TYPES.PartialTableThemeDefine =
-    VTable.themes.DARK.extends({
-      ...customDarkTheme,
-    });
+  const darkTheme: VTable.TYPES.PartialTableThemeDefine = dark;
 
   VTable.register.theme("light", lightTheme);
   VTable.register.theme("dark", darkTheme);

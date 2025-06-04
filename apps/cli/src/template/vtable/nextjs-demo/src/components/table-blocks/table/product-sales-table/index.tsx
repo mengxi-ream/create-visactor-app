@@ -8,12 +8,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
+import { type TableThemeType } from "@/config/table-theme";
 import { columns, sales } from "@/data/sales";
 import VChart from "@visactor/vchart";
 import { ListTable, register } from "@visactor/vtable";
 import { InputEditor } from "@visactor/vtable-editors";
 import { Ellipsis, LayoutGrid, List, Search } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { registerEvent } from "./event-center";
 import TableSpecGenerator from "./table-spec";
 
@@ -27,28 +28,26 @@ export default function ProductTableTable() {
   const tableTheme = useTableTheme();
   const [selectedColumns, setSelectedColumns] = useState(columns);
   const [search, setSearch] = useState("");
-  const instance = useRef<ListTable>(null);
 
   useEffect(() => {
-    if (tableTheme.theme === "system") {
-      return;
-    }
+    if (tableTheme.theme === "system") return;
+
     tableSpecGenerator.init({
-      theme: tableTheme.theme!,
+      themeMode: tableTheme.theme! as TableThemeType,
       records: sales,
       selectedColumns,
       search,
     });
     const spec = tableSpecGenerator.generateSpec();
 
-    instance.current = new ListTable(
+    const instance = new ListTable(
       document.getElementById("products-table") as HTMLElement,
       spec,
     );
-    registerEvent(instance.current);
+    registerEvent(instance);
 
     return () => {
-      instance.current?.release?.();
+      instance?.release?.();
     };
   }, [tableTheme.theme, selectedColumns, search]);
 

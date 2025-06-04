@@ -6,6 +6,10 @@ import * as VTable from "@visactor/vtable";
 import { useEffect } from "react";
 import HeatMapSpecGenerator from "./heatmap-spec";
 
+const heatMapGenerator = new HeatMapSpecGenerator({
+  records: heatMapSales,
+});
+
 export default function HeatMap() {
   const tableTheme = useTableTheme();
 
@@ -14,16 +18,17 @@ export default function HeatMap() {
     if (!theme || theme === "system") {
       return;
     }
-    const heatMapGenerator = new HeatMapSpecGenerator({
-      records: heatMapSales,
-      theme,
-    });
+    heatMapGenerator.toggleTheme(theme);
     const spec = heatMapGenerator.generateSpec();
-    new VTable.PivotTable(
+    const instance = new VTable.PivotTable(
       document.getElementById("heatMap") as HTMLElement,
       spec,
     );
+
+    return () => {
+      instance.release();
+    };
   }, [tableTheme.theme]);
 
-  return <div id="heatMap" className="w-full h-[80vh]"></div>;
+  return <div id="heatMap" className="w-full h-[70vh]"></div>;
 }

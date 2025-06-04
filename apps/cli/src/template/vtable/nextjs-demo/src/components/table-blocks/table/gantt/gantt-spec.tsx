@@ -1,152 +1,299 @@
+import {
+  BgColorEnum,
+  HeaderBgColorEnum,
+  tableTheme,
+  type TableThemeType,
+} from "@/config/table-theme";
 import records from "@/data/project-progress";
-import { TYPES } from "@visactor/vtable-gantt";
-import ganttTheme, { type GanttThemeEnum } from "./gantt-theme";
+import { formatMonthYear, formatWeekdayDay } from "@/lib/utils";
+import { TYPES, VRender } from "@visactor/vtable-gantt";
 
 type GanttConstructorOptions = TYPES.GanttConstructorOptions;
 type ColumnsDefine = TYPES.ITableColumnsDefine;
+type TaskBarCustomLayoutArgumentType = TYPES.TaskBarCustomLayoutArgumentType;
+type ITaskBarCustomLayoutObj = TYPES.ITaskBarCustomLayoutObj;
+type DateCustomLayoutArgumentType = TYPES.DateCustomLayoutArgumentType;
+type IDateCustomLayoutObj = TYPES.IDateCustomLayoutObj;
+
+const { Group, Text, Rect } = VRender;
+const taskBarColor = ["#4FD1C3", "#68D291", "#F6AD56"];
+const LineColorEnum = {
+  light: "#d1d5da",
+  dark: "#444A54",
+};
 
 class GanttSpecGenerator {
-  themeMode = "" as GanttThemeEnum;
+  themeMode = "" as TableThemeType;
 
   constructor() {}
 
   get taskTableColumns() {
-    const theme = this.theme;
-    const { headerStyle, bodyStyle: style } = theme;
-    console.log(theme, "gantt-theme");
     return [
       {
         field: "title",
         title: "Title",
         width: 200,
-        headerStyle,
-        style,
+        tree: true,
       },
       {
         field: "duration",
         title: "Duration",
         width: 100,
-        headerStyle,
-        style,
+        fieldFormat({ duration }) {
+          return `${duration} days`;
+        },
       },
       {
         field: "progress",
         title: "Status",
         width: 100,
-        headerStyle,
-        style,
+        cellType: "progressbar",
+        fieldFormat({ progress }) {
+          return `${progress} %`;
+        },
+        barType: "negative_no_axis",
+        style: {
+          textAlign: "right",
+          barHeight: 20,
+          barBottom: "30%",
+          barBgColor: "rgba(217,217,217,0.3)",
+        },
       },
     ] as ColumnsDefine;
   }
 
   get theme() {
-    return ganttTheme[this.themeMode];
+    return tableTheme[this.themeMode];
   }
 
-  toggleTheme(theme: GanttThemeEnum) {
+  get barTextColor() {
+    const textColorMap = {
+      light: "#fff",
+      dark: "#fff",
+    };
+    return textColorMap[this.themeMode];
+  }
+
+  get gridBgColor() {
+    return BgColorEnum[this.themeMode] as string;
+  }
+
+  get headerBgColor() {
+    return HeaderBgColorEnum[this.themeMode];
+  }
+
+  get lineColor() {
+    return LineColorEnum[this.themeMode];
+  }
+
+  toggleTheme(theme: TableThemeType) {
     this.themeMode = theme;
   }
 
-  generateSpec() {
-    const theme = this.theme;
+  itemBarLayout(
+    args: TaskBarCustomLayoutArgumentType,
+  ): ITaskBarCustomLayoutObj {
+    const { taskRecord, width, height, index } = args;
+    const { defaultStyle } = this.theme;
+    const { fontFamily, fontSize, fontWeight } = defaultStyle!;
+    const barColor = taskBarColor[index % 3];
 
+    const container = new Group({
+      width,
+      height,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "flex-start",
+      fill: barColor,
+      cornerRadius: 10,
+      boundsPadding: [0, 0, 0, 10],
+    });
+
+    const text = new Text({
+      text: taskRecord.title,
+      fontSize: fontSize as number,
+      fontFamily: fontFamily as string,
+      fontWeight: fontWeight as number,
+      fill: "#fff",
+      boundsPadding: [0, 10],
+    });
+
+    container.add(text);
+
+    return {
+      renderDefaultBar: false,
+      renderDefaultResizeIcon: false,
+      renderDefaultText: false,
+      rootContainer: container,
+    };
+  }
+
+  parentBarLayout(
+    args: TaskBarCustomLayoutArgumentType,
+  ): ITaskBarCustomLayoutObj {
+    const { taskRecord, width, height } = args;
+    const { headerStyle } = this.theme;
+    const { fontFamily, fontSize, fontWeight, color = "#fff" } = headerStyle!;
+    const group = new Group({
+      width,
+      height,
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "flex-start",
+    });
+
+    const text = new Text({
+      text: taskRecord.title,
+      fontSize: fontSize as number,
+      fontFamily: fontFamily as string,
+      fontWeight: fontWeight as number,
+      fill: color as string,
+      boundsPadding: [0, 10, 0, 10],
+    });
+
+    const textWidth = text.clipedWidth as number;
+
+    const inner = new Rect({
+      width: width - textWidth - 30,
+      height: 5,
+      fill: this.lineColor,
+      cornerRadius: 10,
+      boundsPadding: [0, 0, 0, 10],
+    });
+
+    group.add(inner);
+    group.add(text);
+
+    return {
+      rootContainer: group,
+      renderDefaultBar: false,
+      renderDefaultResizeIcon: false,
+      renderDefaultText: false,
+    };
+  }
+
+  generateTaskBarLayout(
+    args: TaskBarCustomLayoutArgumentType,
+  ): ITaskBarCustomLayoutObj {
+    const { taskRecord } = args;
+    if (!taskRecord?.children) return this.itemBarLayout(args);
+    return this.parentBarLayout(args);
+  }
+
+  dateCustomLayout(args: DateCustomLayoutArgumentType): IDateCustomLayoutObj {
+    const { width, height, title } = args;
+    const { headerStyle } = this.theme;
+    const {
+      fontFamily,
+      fontSize,
+      fontWeight,
+      color = "#fff",
+      bgColor,
+    } = headerStyle!;
+
+    const container = new Group({
+      width,
+      height,
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      fill: bgColor as string,
+    });
+
+    const text = new Text({
+      text: title,
+      fontSize: fontSize as number,
+      fontFamily: fontFamily as string,
+      fontWeight: fontWeight as number,
+      fill: color as string,
+      boundsPadding: [0, 10],
+    });
+
+    container.add(text);
+
+    return {
+      rootContainer: container,
+      renderDefaultText: false,
+    };
+  }
+
+  generateSpec() {
+    const generateTaskBarLayout = this.generateTaskBarLayout.bind(this);
+    const dateCustomLayout = this.dateCustomLayout.bind(this);
+    const underlayBackgroundColor = this.theme.underlayBackgroundColor;
+    const theme = this.theme;
+    const { headerStyle } = theme;
+    const lineColor = this.lineColor;
     return {
       records,
       taskListTable: {
         columns: this.taskTableColumns,
         minTableWidth: 100,
         maxTableWidth: 600,
+        theme,
       },
       frame: {
         outerFrameStyle: {
-          borderColor: "#ebedf0",
-          borderLineWidth: 1,
-          cornerRadius: 12,
-          padding: [1, 1, 1, 1],
+          borderLineWidth: 0,
         },
         verticalSplitLine: {
-          lineColor: "#f0f0f0",
+          lineColor,
           lineWidth: 1,
         },
+        verticalSplitLineMoveable: true,
       },
       grid: {
-        backgroundColor: "#fafaff",
         weekendBackgroundColor: "rgba(94, 180, 245, 0.10)",
         verticalLine: {
           lineWidth: 1,
-          lineColor: "#f5f5f5",
         },
-        horizontalLine: {
-          lineWidth: 1,
-          lineColor: "#f5f5f5",
-        },
+        backgroundColor: this.gridBgColor,
       },
       headerRowHeight: 42,
       rowHeight: 40,
       taskBar: {
+        resizable: false,
         startDateField: "start",
         endDateField: "end",
         progressField: "progress",
         moveable: true,
+        selectable: false,
+        customLayout: generateTaskBarLayout,
         hoverBarStyle: {
-          barOverlayColor: "rgba(99, 144, 0, 0.2)",
+          barOverlayColor: "",
         },
-        labelText: "{title} {progress}%",
-        labelTextStyle: {
-          fontFamily: "Arial",
-          fontSize: 16,
-          textAlign: "left",
-          textOverflow: "ellipsis",
-          color: "rgb(240, 246, 251)",
-        },
-        barStyle: {
-          width: 24,
-          barColor: "#d6e4ff",
-          completedBarColor: "#597ef7",
-          cornerRadius: 12,
-          borderLineWidth: 2,
-          borderColor: "rgb(7, 88, 150)",
+        style: {
+          cornerRadius: 10,
         },
       },
       timelineHeader: {
         colWidth: 50,
-        backgroundColor: "#fafafa",
+        backgroundColor: headerStyle?.bgColor,
         horizontalLine: {
           lineWidth: 1,
-          lineColor: "#f0f0f0",
+          lineColor,
         },
         verticalLine: {
-          lineWidth: 1,
-          lineColor: "#f0f0f0",
+          lineWidth: 0,
         },
         scales: [
           {
-            unit: "week",
+            unit: "month",
             step: 1,
-            format(date: { dateIndex: number }) {
-              return `W${date.dateIndex}`;
+            format(date: { startDate: Date }) {
+              const { startDate } = date;
+              return formatMonthYear(startDate);
             },
-            style: {
-              fontSize: 12,
-              fontFamily: "PingFang SC",
-              textAlign: "center",
-              textBaseline: "middle",
-              color: "#262626",
-              padding: [8, 0],
-            },
+            customLayout: dateCustomLayout,
           },
           {
             unit: "day",
             step: 1,
-            format(date: { dateIndex: number }) {
-              return `T${date.dateIndex.toString()}`;
-            },
-            style: {
-              fontSize: 12,
-              textAlign: "center",
-              textBaseline: "middle",
-              color: "#8c8c8c",
-              padding: [8, 0],
+            customLayout: dateCustomLayout,
+            format(date: { startDate: Date }) {
+              const { startDate } = date;
+              return formatWeekdayDay(startDate);
             },
           },
         ],
@@ -180,6 +327,8 @@ class GanttSpecGenerator {
           scrollSliderColor: "#bbb",
         },
       },
+      groupBy: true,
+      underlayBackgroundColor,
     } as GanttConstructorOptions;
   }
 }

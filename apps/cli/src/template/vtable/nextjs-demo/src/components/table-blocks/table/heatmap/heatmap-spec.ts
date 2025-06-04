@@ -10,18 +10,21 @@ enum HeatMapColorEnum {
 class HeatMapSpecGenerator {
   spec: VTable.TYPES.PivotTableConstructorOptions;
   records: HeatMapSales;
-  theme: string;
   max: number;
   min: number;
+  theme = "";
 
-  constructor(prop: { records: HeatMapSales; theme: string }) {
-    const { records, theme } = prop;
+  constructor(prop: { records: HeatMapSales }) {
+    const { records } = prop;
     this.spec = {};
     this.records = records;
-    this.theme = theme;
     const { max, min } = this.getMaxMin(records, "sales");
     this.max = max;
     this.min = min;
+  }
+
+  toggleTheme(theme: string) {
+    this.theme = theme;
   }
 
   generateSpec(): VTable.TYPES.PivotTableConstructorOptions {

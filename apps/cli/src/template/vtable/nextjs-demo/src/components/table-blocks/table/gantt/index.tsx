@@ -14,13 +14,14 @@ export default function GanttChart() {
 
   useEffect(() => {
     const container = document.getElementById("gantt_table");
-    if (!container) {
-      return;
-    }
+    if (!container || theme === "system") return;
     ganttSpecGenerator.toggleTheme(theme);
     const spec = ganttSpecGenerator.generateSpec();
-    new VTableGantt.Gantt(container, spec);
+    const instance = new VTableGantt.Gantt(container, spec);
+    return () => {
+      instance?.release();
+    };
   }, [theme]);
 
-  return <div id="gantt_table" className="w-full h-128 relative"></div>;
+  return <div id="gantt_table" className="w-full h-[80vh] relative"></div>;
 }

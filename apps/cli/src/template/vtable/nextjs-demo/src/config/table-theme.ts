@@ -1,63 +1,23 @@
-import type { TYPES } from "@visactor/vtable";
+import dark from "./themes/dark";
+import light from "./themes/light";
 
-export enum BgColorEnum {
+enum BgColorEnum {
   dark = "#282A2E",
   light = "#fff",
 }
 
-export const FONT_FAMILY = "'Gabarito', 'Gabarito Fallback'";
+enum HeaderBgColorEnum {
+  dark = "#373B45",
+  light = "#f7f7f7",
+}
 
-export const fontConfig = {
-  fontFamily: FONT_FAMILY,
-  fontWeight: "lighter",
-  fontSize: 14,
+const tableTheme = {
+  dark,
+  light,
 };
 
-const lightHeaderStyle = {
-  bgColor: "#f7f7f7",
-  color: "#606060",
-  ...fontConfig,
-};
+type TableThemeType = keyof typeof tableTheme;
 
-const lightStyle = {
-  bgColor: BgColorEnum.light,
-};
+export { dark, light, tableTheme, BgColorEnum, HeaderBgColorEnum };
 
-const darkStyle = {
-  bgColor: BgColorEnum.dark,
-};
-
-export const customDarkTheme: TYPES.ITableThemeDefine = {
-  defaultStyle: {
-    borderLineWidth: 0,
-    ...fontConfig,
-    ...darkStyle,
-  },
-  headerStyle: {
-    ...fontConfig,
-  },
-  rowHeaderStyle: {
-    ...fontConfig,
-  },
-  cornerHeaderStyle: {
-    ...fontConfig,
-  },
-  bodyStyle: {
-    ...fontConfig,
-    ...darkStyle,
-  },
-};
-
-export const customLightTheme: TYPES.ITableThemeDefine = {
-  defaultStyle: {
-    borderLineWidth: 0,
-    ...fontConfig,
-  },
-  headerStyle: lightHeaderStyle,
-  rowHeaderStyle: lightHeaderStyle,
-  cornerHeaderStyle: lightHeaderStyle,
-  bodyStyle: {
-    ...lightStyle,
-    ...fontConfig,
-  },
-};
+export type { TableThemeType };

@@ -1,4 +1,4 @@
-import { BgColorEnum } from "@/config/table-theme";
+import { tableTheme, type TableThemeType } from "@/config/table-theme";
 import type { Sales } from "@/data/sales";
 import type { ILinearProgressChartSpec } from "@visactor/vchart";
 import { ListTable, VCircle, VGroup } from "@visactor/vtable";
@@ -16,16 +16,18 @@ enum EllipsisIcon {
 
 type StatusColorType = keyof typeof StatusColor;
 type ListTableConstructorOptions = TYPES.ListTableConstructorOptions;
+type OmitStringColorPropertyDefine = Exclude<TYPES.ColorPropertyDefine, string>;
+type StylePropertyFunctionArg = TYPES.StylePropertyFunctionArg;
+type ITableThemeDefine = TYPES.ITableThemeDefine;
 
 class TableSpecGenerator {
   records: Sales;
-  theme: string;
+  themeMode = "" as TableThemeType;
   selectedColumns: string[];
 
   constructor() {
     this.records = [];
     this.selectedColumns = [];
-    this.theme = "";
   }
 
   get generalColumnSpec() {
@@ -66,27 +68,30 @@ class TableSpecGenerator {
   }
 
   get buttonStyle() {
-    const { theme } = this;
-    return this.buttonStyleMap[theme];
+    const { themeMode } = this;
+    return this.buttonStyleMap[themeMode];
   }
 
   get buttonColor() {
-    const { theme } = this;
-    return this.buttonColorMap[theme];
+    const { themeMode } = this;
+    return this.buttonColorMap[themeMode];
+  }
+
+  get theme() {
+    return tableTheme[this.themeMode ?? "light"];
   }
 
   get menu() {
     return {
       renderMode: "html",
       contextMenuItems: [
-        { text: "向下插入空行", menuKey: "insertRow" },
-        { text: "删除该行", menuKey: "deleteRow" },
+        { text: "insert row", menuKey: "insertRow" },
+        { text: "delete row", menuKey: "deleteRow" },
       ],
     };
   }
 
   get chartSpec() {
-    const theme = this.theme as keyof typeof BgColorEnum;
     return {
       type: "linearProgress",
       data: { id: "id0" },
@@ -97,9 +102,6 @@ class TableSpecGenerator {
       cornerRadius: 20,
       bandWidth: 12,
       padding: 10,
-      theme: {
-        background: BgColorEnum[theme],
-      },
       axes: [
         {
           orient: "right",
@@ -128,15 +130,27 @@ class TableSpecGenerator {
     } as ILinearProgressChartSpec;
   }
 
+  get defaultDisplayColumns() {
+    return [
+      "status",
+      "totalSales",
+      "isCheck",
+      "options",
+      "button",
+      "trend",
+      "progress",
+    ];
+  }
+
   init(props: {
     records: Sales;
-    theme: string;
+    themeMode: TableThemeType;
     selectedColumns: string[];
     search: string;
   }) {
-    const { records, theme, selectedColumns, search } = props;
+    const { records, themeMode, selectedColumns, search } = props;
     this.records = this.filterRecords(records, search);
-    this.theme = theme;
+    this.themeMode = themeMode;
     this.selectedColumns = selectedColumns;
   }
 
@@ -148,18 +162,26 @@ class TableSpecGenerator {
     });
   }
 
+  getChartBgColor(args: StylePropertyFunctionArg) {
+    return (this.theme.bodyStyle!.bgColor as OmitStringColorPropertyDefine)(
+      args,
+    );
+  }
+
+  generateChartSpec(args: StylePropertyFunctionArg) {
+    return {
+      ...this.chartSpec,
+      background: this.getChartBgColor(args),
+    };
+  }
+
   generateColumns() {
     const selectedColumns = [
       ...this.selectedColumns,
-      "status",
-      "totalSales",
-      "isCheck",
-      "options",
-      "button",
-      "trend",
-      "progress",
+      ...this.defaultDisplayColumns,
     ];
-    const { theme } = this;
+    const { themeMode } = this;
+    const generateChartSpec = this.generateChartSpec.bind(this);
     const raw = [
       {
         field: "isCheck",
@@ -295,17 +317,15 @@ class TableSpecGenerator {
         style: {
           padding: 1,
         },
-        chartSpec: this.chartSpec,
+        chartSpec: generateChartSpec,
       },
       {
         field: "button",
         title: "Share",
         cellType: "button",
         text: "share",
-        width: 60,
         style: {
           color: this.buttonColor,
-          padding: 14,
           textAlign: "center",
           buttonStyle: this.buttonStyle,
         },
@@ -313,7 +333,7 @@ class TableSpecGenerator {
       {
         field: "options",
         title: "Options",
-        icon: EllipsisIcon[theme as keyof typeof EllipsisIcon],
+        icon: EllipsisIcon[themeMode as keyof typeof EllipsisIcon],
         width: 60,
       },
     ] as TYPES.ColumnsDefine;
@@ -329,10 +349,10 @@ class TableSpecGenerator {
   }
 
   generateSpec() {
-    const { records, theme, menu } = this;
+    const { records, themeMode, menu } = this;
     return {
       records,
-      widthMode: "adaptive",
+      widthMode: "autoWidth",
       heightMode: "standard",
       defaultRowHeight: 50,
       hover: {
@@ -349,13 +369,14 @@ class TableSpecGenerator {
           range: { start: { col: 6, row: 0 }, end: { col: 7, row: 0 } },
         },
       ],
-      theme,
+      theme: themeMode as ITableThemeDefine,
       menu,
       keyboardOptions: {
         copySelected: true,
         pasteValueToCell: true,
         selectAllOnCtrlA: true,
       },
+      autoFillWidth: true,
     } as ListTableConstructorOptions;
   }
 }
