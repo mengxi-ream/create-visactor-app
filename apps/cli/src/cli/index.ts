@@ -43,6 +43,28 @@ const defaultOptions: CliResults = {
   },
 };
 
+const librariesTemplateMap = {
+  vtable: [
+    {
+      value: "nextjs-demo",
+      label: "Next.js demo",
+      hint: "Full featured Next.js dashboard demo",
+    },
+  ],
+  vchart: [
+    {
+      value: "nextjs-demo",
+      label: "Next.js demo",
+      hint: "Full featured Next.js dashboard demo",
+    },
+    {
+      value: "react-demo",
+      label: "React demo",
+      hint: "Full featured React dashboard demo",
+    },
+  ],
+};
+
 export const runCli = async (): Promise<CliResults> => {
   const cliResults = defaultOptions;
 
@@ -119,18 +141,17 @@ export const runCli = async (): Promise<CliResults> => {
               {
                 value: "vtable",
                 label: "VTable",
-                hint: "Not available yet",
               },
             ],
           }),
       }),
-      _library: ({ results }) => {
-        if (results.library === "vtable") {
-          p.note("VTable is not available yet");
-          throw new Error("VTable is not available yet");
-        }
-        return undefined;
-      },
+      // _library: ({ results }) => {
+      //   if (results.library === "vtable") {
+      //     p.note("VTable is not available yet");
+      //     throw new Error("VTable is not available yet");
+      //   }
+      //   return undefined;
+      // },
       ...(!cliAppName && {
         name: () =>
           p.text({
@@ -147,21 +168,10 @@ export const runCli = async (): Promise<CliResults> => {
             },
           }),
       }),
-      template: () => {
+      template: ({ results }) => {
         return p.select({
           message: "Which template would you like?",
-          options: [
-            {
-              value: "nextjs-demo",
-              label: "Next.js demo",
-              hint: "Full featured Next.js dashboard demo",
-            },
-            {
-              value: "svelte-demo",
-              label: "Svelte",
-              hint: "SvelteKit starter with VChart components",
-            },
-          ],
+          options: librariesTemplateMap[results.library!],
         });
       },
       // _template: ({ results }) => {
@@ -210,7 +220,7 @@ export const runCli = async (): Promise<CliResults> => {
   // }
 
   return {
-    library: cliLibrary ?? cliResults.library,
+    library: cliLibrary ?? project.library ?? cliResults.library,
     appName: project.name ?? cliResults.appName,
     packages,
     flags: {
