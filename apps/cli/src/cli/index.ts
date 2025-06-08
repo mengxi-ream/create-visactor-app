@@ -43,28 +43,6 @@ const defaultOptions: CliResults = {
   },
 };
 
-const librariesTemplateMap = {
-  vtable: [
-    {
-      value: "nextjs-demo",
-      label: "Next.js demo",
-      hint: "Full featured Next.js dashboard demo",
-    },
-  ],
-  vchart: [
-    {
-      value: "nextjs-demo",
-      label: "Next.js demo",
-      hint: "Full featured Next.js dashboard demo",
-    },
-    {
-      value: "react-demo",
-      label: "React demo",
-      hint: "Full featured React dashboard demo",
-    },
-  ],
-};
-
 export const runCli = async (): Promise<CliResults> => {
   const cliResults = defaultOptions;
 
@@ -168,19 +146,32 @@ export const runCli = async (): Promise<CliResults> => {
             },
           }),
       }),
-      template: ({ results }) => {
-        return p.select({
+      template: () =>
+        p.select({
           message: "Which template would you like?",
-          options: librariesTemplateMap[results.library!],
-        });
+          options: [
+            {
+              value: "nextjs-demo",
+              label: "Next.js demo",
+              hint: "Full featured Next.js dashboard demo",
+            },
+            {
+              value: "svelte-demo",
+              label: "Svelte",
+              hint: "SvelteKit starter with VChart components",
+            },
+          ],
+        }),
+      _template: ({ results }) => {
+        if (
+          results.template === "svelte-demo" &&
+          results.library === "vtable"
+        ) {
+          p.note("This template is not available yet");
+          throw new Error("This template is not available yet");
+        }
+        return undefined;
       },
-      // _template: ({ results }) => {
-      //   if (results.template === "svelte-demo") {
-      //     p.note("This template is not available yet");
-      //     throw new Error("This template is not available yet");
-      //   }
-      //   return undefined;
-      // },
       // tailwind: () => {
       //   return p.confirm({
       //     message: "Will you be using Tailwind CSS for styling?",
