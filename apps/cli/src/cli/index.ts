@@ -119,18 +119,17 @@ export const runCli = async (): Promise<CliResults> => {
               {
                 value: "vtable",
                 label: "VTable",
-                hint: "Not available yet",
               },
             ],
           }),
       }),
-      _library: ({ results }) => {
-        if (results.library === "vtable") {
-          p.note("VTable is not available yet");
-          throw new Error("VTable is not available yet");
-        }
-        return undefined;
-      },
+      // _library: ({ results }) => {
+      //   if (results.library === "vtable") {
+      //     p.note("VTable is not available yet");
+      //     throw new Error("VTable is not available yet");
+      //   }
+      //   return undefined;
+      // },
       ...(!cliAppName && {
         name: () =>
           p.text({
@@ -147,8 +146,8 @@ export const runCli = async (): Promise<CliResults> => {
             },
           }),
       }),
-      template: () => {
-        return p.select({
+      template: () =>
+        p.select({
           message: "Which template would you like?",
           options: [
             {
@@ -162,15 +161,17 @@ export const runCli = async (): Promise<CliResults> => {
               hint: "SvelteKit starter with VChart components",
             },
           ],
-        });
+        }),
+      _template: ({ results }) => {
+        if (
+          results.template === "svelte-demo" &&
+          results.library === "vtable"
+        ) {
+          p.note("This template is not available yet");
+          throw new Error("This template is not available yet");
+        }
+        return undefined;
       },
-      // _template: ({ results }) => {
-      //   if (results.template === "svelte-demo") {
-      //     p.note("This template is not available yet");
-      //     throw new Error("This template is not available yet");
-      //   }
-      //   return undefined;
-      // },
       // tailwind: () => {
       //   return p.confirm({
       //     message: "Will you be using Tailwind CSS for styling?",
@@ -210,7 +211,7 @@ export const runCli = async (): Promise<CliResults> => {
   // }
 
   return {
-    library: cliLibrary ?? cliResults.library,
+    library: cliLibrary ?? project.library ?? cliResults.library,
     appName: project.name ?? cliResults.appName,
     packages,
     flags: {

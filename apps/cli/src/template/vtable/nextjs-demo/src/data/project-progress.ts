@@ -1,0 +1,121 @@
+const projectProgress = [
+  {
+    title: "Project Launch",
+    start: "2025-01-01",
+    end: "2025-01-10",
+    duration: 10,
+    progress: 100,
+    hierarchyState: "expand",
+    children: [
+      {
+        title: "Requirements Analysis",
+        start: "2025-01-01",
+        end: "2025-01-04",
+        duration: 3,
+        progress: 100,
+      },
+      {
+        title: "Project Plan Development",
+        start: "2025-01-02",
+        end: "2025-01-05",
+        duration: 4,
+        progress: 100,
+      },
+      {
+        title: "Kick-off Meeting",
+        start: "2025-01-06",
+        end: "2025-01-10",
+        duration: 5,
+        progress: 100,
+      },
+    ],
+  },
+  {
+    title: "Design Phase",
+    start: "2025-01-08",
+    end: "2025-01-22",
+    duration: 15,
+    progress: 75,
+    hierarchyState: "expand",
+    children: [
+      {
+        title: "System Architecture Design",
+        start: "2025-01-08",
+        end: "2025-01-12",
+        duration: 5,
+        progress: 100,
+      },
+      {
+        title: "UI/UX Design",
+        start: "2025-01-10",
+        end: "2025-01-17",
+        duration: 8,
+        progress: 100,
+      },
+      {
+        title: "Database Design",
+        start: "2025-01-15",
+        end: "2025-01-22",
+        duration: 8,
+        progress: 50,
+      },
+    ],
+  },
+  {
+    title: "Development Phase",
+    start: "2025-01-20",
+    end: "2025-02-20",
+    duration: 32,
+    progress: 60,
+    hierarchyState: "expand",
+    children: [
+      {
+        title: "Frontend Development",
+        start: "2025-01-20",
+        end: "2025-02-10",
+        duration: 22,
+        progress: 70,
+      },
+      {
+        title: "Backend Development",
+        start: "2025-02-01",
+        end: "2025-02-20",
+        duration: 20,
+        progress: 50,
+      },
+    ],
+  },
+  {
+    title: "Testing and Delivery",
+    start: "2025-02-15",
+    end: "2025-03-10",
+    duration: 24,
+    progress: 20,
+    hierarchyState: "expand",
+    children: [
+      {
+        title: "System Testing",
+        start: "2025-02-15",
+        end: "2025-02-28",
+        duration: 14,
+        progress: 30,
+      },
+      {
+        title: "User Acceptance Testing",
+        start: "2025-02-25",
+        end: "2025-03-05",
+        duration: 9,
+        progress: 0,
+      },
+      {
+        title: "Project Delivery",
+        start: "2025-03-03",
+        end: "2025-03-10",
+        duration: 8,
+        progress: 0,
+      },
+    ],
+  },
+];
+
+export default projectProgress;
