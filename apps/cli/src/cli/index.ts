@@ -91,6 +91,10 @@ export const runCli = async (): Promise<CliResults> => {
     )
     .parse(process.argv);
 
+  const options = program.opts();
+
+  Object.assign(cliResults.flags, options);
+
   const cliLibrary = program.args[0] as AvailableLibraries | undefined;
   if (cliLibrary) {
     cliResults.library = cliLibrary;
